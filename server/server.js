@@ -3,7 +3,7 @@ const { ApolloServer } = require("@apollo/server");
 const { expressMiddleware } = require("@apollo/server/express4");
 const path = require("path");
 const { typeDefs, resolvers } = require("./schema");
-const db = require("./connection");
+const db = require("./config/connection");
 const exp = require("constants");
 
 const PORT = process.env.PORT || 3001;
