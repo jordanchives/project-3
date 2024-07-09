@@ -1,5 +1,5 @@
 const { Schema, model} = require('mongoose');
-const App = require('./App');
+const App = require('./Games');
 
 const transactionAppsSchema = new Schema({
   app: { type: Schema.Types.ObjectId, ref: 'App', required: true },

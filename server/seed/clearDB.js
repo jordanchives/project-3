@@ -1,5 +1,4 @@
 const models = require("../models/index.js");
-const { collection } = require("../models/App.js");
 const db = require("../config/connection.js");
 
 module.exports = async (modelName, collectionName) => {
