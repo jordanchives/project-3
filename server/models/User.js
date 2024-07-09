@@ -1,15 +1,15 @@
 const { Schema, model} = require('mongoose');
-const App = require('./Games');
+const App = require('./Game');
 
-const transactionAppsSchema = new Schema({
-  app: { type: Schema.Types.ObjectId, ref: 'App', required: true },
+const transactionGamesSchema = new Schema({
+  game: { type: Schema.Types.ObjectId, ref: 'App', required: true },
   price: { type: Number, required: true },
 }, { _id: false });
 
 const userTransactionSchema = new Schema({
   transaction_date: { type: Date, required: true },
   total: { type: Number, required: true },
-  apps: [transactionAppsSchema],
+  games: [transactionGamesSchema],
 }, { _id: false });
 
 const userSchema = new Schema({

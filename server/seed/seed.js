@@ -1,14 +1,14 @@
 const db = require("../config/connection.js");
-const { User, App } = require("../models/index.js");
+const { User, Game } = require("../models/index.js");
 const clearDB = require("./clearDB.js");
 const getGamesData = require("./games.js");
 const usersData = require("./users.js");
 
-function createTransaction(apps) {
+function createTransaction(games) {
   return {
     transaction_date: new Date(),
-    total: apps.reduce((acc, app) => acc + app.price, 0),
-    apps: apps.map((app) => {
+    total: games.reduce((acc, app) => acc + app.price, 0),
+    games: games.map((app) => {
       return {
         app: app._id,
         price: app.price,
@@ -20,12 +20,12 @@ function createTransaction(apps) {
 db.once("open", async () => {
   try {
     await clearDB("User", "users");
-    await clearDB("App", "apps");
+    await clearDB("Games", "games");
 
     const gamesData = await getGamesData();
     console.log("Fetched Games Data:", gamesData); // Debug log
-    const createdGames = await App.collection.insertMany(gamesData);
-    const games = await App.find();
+    const createdGames = await Game.collection.insertMany(gamesData);
+    const games = await Game.find();
 
     const usersWithTransactions = usersData.map((user) => {
       let availableGames = [...games];
@@ -48,7 +48,7 @@ db.once("open", async () => {
 
       user.transactions = transactions;
       user.library = transactions.flatMap((transaction) =>
-        transaction.apps.map((app) => app.app)
+        transaction.games.map((app) => app.app)
       );
       return user;
     });
@@ -58,6 +58,8 @@ db.once("open", async () => {
     );
 
     console.log("Seed data successfully added!");
+    console.log("Seeded game count:", createdGames.insertedCount);
+    console.log("Seeded user count:", createdUsers.insertedCount);
     process.exit(0);
   } catch (error) {
     console.error(error);

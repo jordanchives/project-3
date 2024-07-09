@@ -1,6 +1,6 @@
 const { Schema, model} = require('mongoose');
 
-const appSchema = new Schema({
+const gameSchema = new Schema({
   name: { type: String, required: true },
   storyline: { type: String, required: true },
   summary: { type: String, required: true },
@@ -9,5 +9,5 @@ const appSchema = new Schema({
   genres: [{ type: String }]
 });
 
-const App = model('App', appSchema);
-module.exports = App;
+const Game = model('Game', gameSchema);
+module.exports = Game;
