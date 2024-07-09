@@ -2,8 +2,10 @@ const { Schema, model} = require('mongoose');
 
 const appSchema = new Schema({
   name: { type: String, required: true },
+  storyline: { type: String, required: true },
+  summary: { type: String, required: true },
   price: { type: Number, required: true },
-  cover_image_url: { type: String },
+  cover: { type: String },
   genres: [{ type: String }]
 });
 

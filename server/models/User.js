@@ -3,7 +3,6 @@ const App = require('./App');
 
 const transactionAppsSchema = new Schema({
   app: { type: Schema.Types.ObjectId, ref: 'App', required: true },
-  quantity: { type: Number, required: true },
   price: { type: Number, required: true },
 }, { _id: false });
 
