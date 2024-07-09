@@ -4,7 +4,7 @@ const appSchema = new Schema({
   name: { type: String, required: true },
   price: { type: Number, required: true },
   cover_image_url: { type: String },
-  genres: [{ type: String }] // Array of genre names
+  genres: [{ type: String }]
 });
 
 const App = model('App', appSchema);
