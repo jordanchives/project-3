@@ -1,13 +1,15 @@
 
-
+import React from 'react';
+import Categories from '../components/Categories';
 
 export function Home() {
     return (
         <div>
+            <Categories/>
             
-            <h1>Home</h1>
+            
 
-
+            
 
 </div>
     );

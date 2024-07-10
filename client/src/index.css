@@ -6,6 +6,15 @@
   font-family: "Duru sans",sans-serif;
 }
 
+.gradient {
+  background: rgb(58,99,144);
+  background: linear-gradient(
+    90deg,
+     rgba(58,99,144,1)8%,
+      rgba(90,140,182,1)41%,
+       rgba(27,55,125,1)88% );
+}
+
 
 body {
   margin: 0;
