@@ -4,8 +4,6 @@ const typeDefs = `
     username: String
     email: String
     password: String
-    library: [LibraryGame]!
-    transactions: [Transaction]!
   }
 
   type Game {
@@ -20,20 +18,7 @@ const typeDefs = `
 
   type Transaction {
     _id: ID
-    transaction_date: Date
-    total: Number
-    games: [TransactionGame]!
   }
-
-  type LibraryGame {
-    game: Game
-    purchase_date: Date
-  }
-
-  type TransactionGame {
-    game: Game
-    price: Float
-    }
 
   type Auth {
     token: ID!
@@ -42,8 +27,11 @@ const typeDefs = `
 
   type Query {
     users: [User]
+    user: User
     games: [Game]
+    game: Game
     transactions: [Transaction]
+    transaction: Transaction
   }
 
   type Mutation {
