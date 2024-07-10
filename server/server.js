@@ -21,7 +21,7 @@ const startApolloServer = async () => {
     app.use(express.urlencoded({ extended: true }));
     app.use(express.json());
     app.use('/graphql', expressMiddleware(server, {context: authMiddleware}));
-    app.use(express.static(path.join(__dirname, '../client/dist/')));
+    app.use(express.static(path.join(__dirname, '../client/build/')));
 
     app.get('*', (req, res) => {
         res.sendFile(path.join(__dirname, '../client/build/index.html'));
