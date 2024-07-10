@@ -1,4 +1,4 @@
-require('dotenv').config({ path: __dirname + '/../../.env' });
+require('dotenv').config({ path: __dirname + '/../.env' });
 
 const baseURL = "https://api.igdb.com/v4";
 let accessToken = null;

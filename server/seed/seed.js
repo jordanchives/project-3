@@ -53,16 +53,13 @@ db.once("open", async () => {
       return user;
     });
 
-    // insert individually so passwords are hashed
     const createdUsers = await Promise.all(
-      usersWithTransactions.map((user) => User.create(user)));
-    // const createdUsers = await User.collection.insertMany(
-    //   usersWithTransactions
-    // );
+      usersWithTransactions.map((user) => User.create(user))
+    );
 
     console.log("Seed data successfully added!");
     console.log("Seeded game count:", createdGames.insertedCount);
-    console.log("Seeded user count:", createdUsers.insertedCount);
+    console.log("Seeded user count:", usersData.length);
     process.exit(0);
   } catch (error) {
     console.error(error);
