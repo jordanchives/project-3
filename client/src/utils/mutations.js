@@ -13,8 +13,8 @@ export const LOGIN_USER = gql`
 `;
 
 export const AUTH_USER = gql`
-  mutation authenticateUser(username: String!, password: String!) {
-    authenticateUser(username: String!, password: String!) {
+  mutation authenticateUser($username: String!, $password: String!) {
+    authenticateUser(username: $username, password: $password) {
       success
       message 
       user {
