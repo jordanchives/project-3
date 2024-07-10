@@ -24,6 +24,12 @@ const typeDefs = `
     token: ID!
     user: User
   }
+  
+  type AuthPayload {
+    success: Boolean!
+    message: String
+    user: User
+  }
 
   type Query {
     users: [User]
@@ -35,6 +41,7 @@ const typeDefs = `
   }
 
   type Mutation {
+    authenticateUser(username: String!, password: String!): AuthPayload!
     login(email: String!, password: String!): Auth
     logout: Auth
     addUser(username: String!, email: String!, password: String!): Auth
