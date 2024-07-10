@@ -7,11 +7,11 @@ const usersData = require("./users.js");
 function createTransaction(games) {
   return {
     transaction_date: new Date(),
-    total: games.reduce((acc, app) => acc + app.price, 0),
-    games: games.map((app) => {
+    total: games.reduce((acc, game) => acc + game.price, 0),
+    games: games.map((game) => {
       return {
-        app: app._id,
-        price: app.price,
+        game: game._id,
+        price: game.price,
       };
     }),
   };
@@ -48,14 +48,17 @@ db.once("open", async () => {
 
       user.transactions = transactions;
       user.library = transactions.flatMap((transaction) =>
-        transaction.games.map((app) => app.app)
+        transaction.games.map((game) => game.game)
       );
       return user;
     });
 
-    const createdUsers = await User.collection.insertMany(
-      usersWithTransactions
-    );
+    // insert individually so passwords are hashed
+    const createdUsers = await Promise.all(
+      usersWithTransactions.map((user) => User.create(user)));
+    // const createdUsers = await User.collection.insertMany(
+    //   usersWithTransactions
+    // );
 
     console.log("Seed data successfully added!");
     console.log("Seeded game count:", createdGames.insertedCount);
