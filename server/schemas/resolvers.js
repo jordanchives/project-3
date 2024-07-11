@@ -15,15 +15,13 @@ const resolvers = {
     game: async (parent, { name }) => {
       return Game.findOne({ name });
     },
-    genres: async (parent) => {
-      return Genre.find();
-    },
     genre: async (parent, { name }) => {
-      const params = name ? { name } : {};
-      return Genre.findOne(params);
+      return Game.find({ genres: { $in: [name] } });
     },
     transactions: async (parent, { userId }) => {
-      return Transaction.find({ userId });
+      const user = User.findById(userId);
+      console.log(user.username);
+      return user.transactions;
     },
     transaction: async (parent, { _id }) => {
       return Transaction.findOne({ _id });
