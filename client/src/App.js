@@ -8,7 +8,7 @@ function App() {
     <main>
     <NavBar/>
 
-   <div className ="bg-[#1b2838] h-screen">
+   <div className ="bg-[#1b2838] h-screen p-5">
     <BrowserRouter>
     <Routes>
       

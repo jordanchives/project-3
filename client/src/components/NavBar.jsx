@@ -41,11 +41,8 @@ function NavBar () {
                 </div>
             </div>
             {/* Right */}
-            <div className="text-white absolute top-0 right-[2.5rem] text-[8px] flex items-center mt-1.5 sm:hidden">
-                <div className="flex items-center bg-[#5c7e10] px-1.5  py-0.5 rounded-[0.3rem]">
-                <ImDownload className="text-white mr-1.5 text-[9px] "/>
-                <p className="">Install Steam</p>
-                </div>
+            <div className="text-white absolute top-0 right-[2.5rem] text-[8px] flex items-center mt-1.5 ">
+                
                 <div className="py-[2px] px-2 ml-4 bg-black rounded-[0.5rem] hover:bg-inherit group duration-100 ">
                   <p className="text-[white] font-semibold group-hover:text-red-700 ">Login</p>
                 </div>
