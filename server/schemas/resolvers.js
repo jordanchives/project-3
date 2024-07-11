@@ -9,18 +9,24 @@ const resolvers = {
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    games: async (parent, { name }) => {
+    games: async (parent) => {
+      return Game.find();
+    },
+    game: async (parent, { name }) => {
+      return Game.findOne({ name });
+    },
+    genres: async (parent) => {
+      return Genre.find();
+    },
+    genre: async (parent, { name }) => {
       const params = name ? { name } : {};
-      return Game.find(params);
+      return Genre.findOne(params);
     },
-    game: async (parent, { thoughtId }) => {
-      return Game.findOne({ _id: thoughtId });
+    transactions: async (parent, { userId }) => {
+      return Transaction.find({ userId });
     },
-    transactions: async () => {
-        return User.find().populate('transactions');
-    },
-    transaction: async (parent, { transactionId }) => {
-        return User.findOne({ _id: transactionId }).populate('transactions');
+    transaction: async (parent, { _id }) => {
+      return Transaction.findOne({ _id });
     },
   },
 
@@ -51,4 +57,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-1

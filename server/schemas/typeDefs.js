@@ -13,11 +13,20 @@ const typeDefs = `
     summary: String
     price: Float
     cover: String
-    genres: [String]
+    genres: [Genre]
+  }
+  
+  type Genre {
+    _id: ID
+    name: String
   }
 
   type Transaction {
     _id: ID
+    userId: ID
+    
+    amount: Float
+    date: String
   }
 
   type Auth {
@@ -36,6 +45,8 @@ const typeDefs = `
     user: User
     games: [Game]
     game: Game
+    genre: Genre
+    genres: [Genre]
     transactions: [Transaction]
     transaction: Transaction
   }
