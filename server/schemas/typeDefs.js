@@ -3,7 +3,6 @@ const typeDefs = `
     _id: ID
     username: String
     email: String
-    password: String
     transactions: [Transaction]
   }
 
@@ -22,9 +21,15 @@ const typeDefs = `
     name: String
   }
 
+  type TransactionGame {
+    game: ID
+    price: Float
+  }
+
   type Transaction {
     total: Float
     transaction_date: String
+    games: [TransactionGame]
   }
 
   type Auth {
@@ -42,8 +47,9 @@ const typeDefs = `
     users: [User]
     user: User
     games: [Game]
-    game: Game
-    genre(name: String!): [Game]
+    gameByName(name: String!): Game
+    gameById(gameId: ID!): Game
+    gamesByGenre(name: String!): [Game]
     transactions(userId: ID!): [Transaction]
     transaction: Transaction
   }
@@ -54,6 +60,7 @@ const typeDefs = `
     logout: Auth
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
+    addTransaction(userId: ID!, games: [ID]!): Transaction
   }
 `;
 
