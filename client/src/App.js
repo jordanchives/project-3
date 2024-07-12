@@ -5,6 +5,7 @@ import Register from "./Pages/Register";
 import Test from "./Pages/Test";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {React, useState} from 'react';
 
 const client = new ApolloClient({
   uri:
@@ -16,6 +17,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    
     <ApolloProvider client={client}>
       <main>
         <NavBar />

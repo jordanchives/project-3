@@ -19,7 +19,7 @@ function Login() {
 
       auth.login(data.login.token);
     } catch (err) {
-      console.error(err);
+      console.error(error);
     }
   };
 
