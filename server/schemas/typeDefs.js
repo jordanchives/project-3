@@ -56,7 +56,7 @@ const typeDefs = `
 
   type Mutation {
     authenticateUser(username: String!, password: String!): AuthPayload!
-    login(email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
     logout: Auth
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User

@@ -44,11 +44,14 @@ const resolvers = {
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
+      if (!user) {
+        throw new AuthenticationError('User was not created!');
+      }
       return { token, user };
     },
     // login a user
-    login: async (parent, { email, password }) => {
-      const user = await User.findOne({ email });
+    login: async (parent, { username, password }) => {
+      const user = await User.findOne(username);
 
       if (!user) {
         throw AuthenticationError;
