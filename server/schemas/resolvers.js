@@ -34,9 +34,10 @@ const resolvers = {
       return user.transactions;
     },
     // return a single transaction by ID
-    transaction: async (parent, { _id }) => {
-      return Transaction.findOne({ _id });
-    },
+    // transaction: async (parent, { userId, transactionId }) => {
+    //   const user = await User.findById(userId);
+    //   return user.transactions.findOne({ transactionId });
+    // },
   },
 
   Mutation: {
