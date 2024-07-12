@@ -1,19 +1,27 @@
 import { gql } from '@apollo/client';
 
-export const QUERY_ME = gql`
-  {
+export const QUERY_USERS = gql`
+  query {
     users {
       _id
       username
       email
-      password
     }
-    user {
+  }
+`;
+
+export const QUERY_USER = gql`
+  query User($id: ID!) {
+    user(id: $id) {
       _id
       username
       email
-      password
     }
+  }
+`;
+
+export const QUERY_GAMES = gql`
+  query {
     games {
       _id
       name
@@ -23,7 +31,12 @@ export const QUERY_ME = gql`
       cover
       genres
     }
-    game {
+  }
+`;
+
+export const QUERY_GAME = gql`
+  query Game($id: ID!) {
+    game(id: $id) {
       _id
       name
       storyline
@@ -32,10 +45,20 @@ export const QUERY_ME = gql`
       cover
       genres
     }
+  }
+`;
+
+export const QUERY_TRANSACTIONS = gql`
+  query {
     transactions {
       _id
     }
-    transaction {
+  }
+`;
+
+export const QUERY_TRANSACTION = gql`
+  query Transaction($id: ID!) {
+    transaction(id: $id) {
       _id
     }
   }

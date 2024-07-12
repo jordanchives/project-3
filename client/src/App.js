@@ -2,8 +2,10 @@ import NavBar from "./components/NavBar";
 import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
+import Test from "./Pages/Test";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
+import {React, useState} from 'react';
 
 const client = new ApolloClient({
   uri:
@@ -15,6 +17,7 @@ const client = new ApolloClient({
 
 function App() {
   return (
+    
     <ApolloProvider client={client}>
       <main>
         <NavBar />
@@ -25,6 +28,7 @@ function App() {
               <Route path="/Login" element={<Login />} />
               <Route path="/Home" element={<Home />} />
               <Route path="/Register" element={<Register />} />
+              <Route path="/test" element={<Test />} />
             </Routes>
           </BrowserRouter>
         </div>
