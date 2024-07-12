@@ -51,7 +51,6 @@ const typeDefs = `
     gameById(gameId: ID!): Game
     gamesByGenre(name: String!): [Game]
     transactions(userId: ID!): [Transaction]
-    transaction: Transaction
   }
 
   type Mutation {
