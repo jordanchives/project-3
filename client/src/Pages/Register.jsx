@@ -44,7 +44,7 @@ const Register=() => {
                     <p className="text-white mt-4 text-center">Already have an account?
                     <a href="#" className="text-white-500 hover:underline mt-4 px-1 ">Sign In</a>
                     </p>
-                    <span className={visible ? "invisible" : ""} > Problem Createing User!</span>
+                    <span style={{color: "white"}} className= {visible ? "invisible" : ""} > Problem Createing User!</span>
                     
                 </form>
             </div>

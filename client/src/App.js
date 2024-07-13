@@ -3,6 +3,7 @@ import Login from "./Pages/Login";
 import Home from "./Pages/Home";
 import Register from "./Pages/Register";
 import Test from "./Pages/Test";
+import Error from "./Pages/Error";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import {React, useState} from 'react';
@@ -29,6 +30,7 @@ function App() {
               <Route path="/Home" element={<Home />} />
               <Route path="/Register" element={<Register />} />
               <Route path="/test" element={<Test />} />
+              <Route path="*" element={<Error/>} />
             </Routes>
           </BrowserRouter>
         </div>

@@ -15,6 +15,19 @@
        rgba(27,55,125,1)88% );
 }
 
+#slider {
+  width: 400px;
+  height:350px;
+  padding: 50px;
+  display:flex;
+  justify-content: center;
+  align-items: center;
+  display:block;
+  font-size: 25px;
+  
+ 
+}
+
 
 body {
   margin: 0;
