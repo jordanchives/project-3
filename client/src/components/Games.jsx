@@ -9,7 +9,7 @@ import 'swiper/css/pagination';
 import { FreeMode, Pagination } from 'swiper/modules';
 import data from "../assets/index.json";
 //useEffect that calls api to fill in data like above json
-function Games () {
+function Games (props) {
 
   return (
     <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4 mt-56">
@@ -31,10 +31,10 @@ function Games () {
         className="mySwiper"
       >
         {
-          data.games.map(game => {
+          props.map(game => {
             return(
              <SwiperSlide>
-              <Card  key={game.id} image={game.image} name={game.name} description={game.description} />
+              <Card  key={game._id} game={game} />
              </SwiperSlide>
             )
           })

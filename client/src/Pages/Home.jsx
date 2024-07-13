@@ -1,11 +1,12 @@
 
 
-
+import { QUERY_GAMES } from "../utils/queries";
 import Games from '../components/Games';
 import Card from '../components/Card';
 import React, { useRef, useState } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SearchBar from '../components/SearchBar';
+import {useState, useEffect} from 'react';
 
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
@@ -15,7 +16,19 @@ import { Navigation } from 'swiper/modules';
 
 
 export function Home() {
+  const  { loading, data } = useQuery(QUERY_GAMES);
+  const [games, setGames] = useState([]);
+  const gameData = data?.games || []
+
+  useEffect(() => {
+    if (data) {
+      setGames(data.games);
+    }
+  }, [data]);
+  if (loading) {
+    return <div>Loading...</div>;
     return (
+      
         <main>
         <div>
             <SearchBar/>
@@ -55,4 +68,5 @@ export function Home() {
 
     );
 }
+
 export default Home;
