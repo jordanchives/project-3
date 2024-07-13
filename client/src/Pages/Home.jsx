@@ -1,9 +1,9 @@
 
-
+import { useQuery } from '@apollo/client';
 import { QUERY_GAMES } from "../utils/queries";
 import Games from '../components/Games';
 import Card from '../components/Card';
-import React, { useRef, useState } from 'react';
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import SearchBar from '../components/SearchBar';
 import {useState, useEffect} from 'react';
@@ -19,6 +19,7 @@ export function Home() {
   const  { loading, data } = useQuery(QUERY_GAMES);
   const [games, setGames] = useState([]);
   const gameData = data?.games || []
+  console.log(gameData)
 
   useEffect(() => {
     if (data) {
@@ -27,12 +28,13 @@ export function Home() {
   }, [data]);
   if (loading) {
     return <div>Loading...</div>;
+  }
     return (
       
         <main>
         <div>
             <SearchBar/>
-            <Games />
+            <Games games={gameData} />
             <Card/>
             
 </div>
@@ -64,9 +66,8 @@ export function Home() {
       </Swiper>
 </div>
 </main>
-
+  
 
     );
-}
-
+  }
 export default Home;
