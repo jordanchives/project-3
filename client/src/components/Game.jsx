@@ -1,4 +1,6 @@
-const Games = (props) => {
+import React from 'react';
+
+const Game = (props) => {
   return (
     <div>
       <h1>{props.game.name}</h1>
@@ -10,4 +12,4 @@ const Games = (props) => {
   );
 };
 
-export default Games;
+export default Game;
