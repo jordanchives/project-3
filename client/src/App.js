@@ -7,6 +7,7 @@ import Error from "./Pages/Error";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ApolloClient, ApolloProvider, InMemoryCache } from "@apollo/client";
 import {React, useState} from 'react';
+import GamePage from "./Pages/GamePage";
 
 const client = new ApolloClient({
   uri:
@@ -31,6 +32,8 @@ function App() {
               <Route path="/Register" element={<Register />} />
               <Route path="/test" element={<Test />} />
               <Route path="*" element={<Error/>} />
+              <Route path="/games/:gameID" element={<GamePage />} />
+             
             </Routes>
           </BrowserRouter>
         </div>

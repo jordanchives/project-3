@@ -49,12 +49,38 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+game-card {
+  position: relative;
+  display: flex;
+  width: 90%; /* Adjust the width to make the images slightly smaller */
+  max-width: 300px; /* Optional: Set a maximum width for the card */
+  text-decoration: none;
+  color: inherit;
+  overflow: hidden;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; /* Center the card horizontally */
+  justify-content: center;
+}
+
+.game-card-content {
+  position: relative;
+}
+
+.game-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+  margin-top: 10px;
+}
+
 
 .game-title {
   position: absolute;
   bottom: 0;
   left: 0;
-  width: 100%;
+  width:fit-content;
   padding: 10px;
   background: rgba(0, 0, 0, 0.6);
   color: white;
@@ -65,13 +91,24 @@ code {
 .game-card:hover .game-title {
   opacity: 1;
 }
+.game-image-container {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
 
 .game-price {
   position: absolute;
-  bottom: 10px;
-  right: 10px;
+  bottom: 0px;
+  right: 0px;
   background: rgba(0, 0, 0, 0.7);
   color: white;
   padding: 5px 10px;
   border-radius: 5px;
+
+ 
 }
+
+
+

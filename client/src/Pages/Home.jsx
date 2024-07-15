@@ -8,6 +8,9 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
+import Footer from '../components/Footer';
+import flowbite from 'flowbite';
+
 
 export function Home() {
   const { loading, data } = useQuery(QUERY_GAMES);
@@ -27,6 +30,7 @@ export function Home() {
     <main className="">
       <div>
         <SearchBar />
+       
         <Games className="" games={games} />
       </div>
       {/* Categories game type */}
@@ -57,6 +61,8 @@ export function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
+      <Footer/>
+      
     </main>
   );
 }

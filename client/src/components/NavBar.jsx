@@ -1,7 +1,7 @@
 import React from 'react';
-import logo from '../assets/logo.svg';
-import { FiMenu } from 'react-icons/fi';
-import {ImDownload} from 'react-icons/im';
+import logo from '../assets/images/logo.svg';
+
+
 
 function NavBar () {
     return (
@@ -10,7 +10,8 @@ function NavBar () {
             {/*Left*/}
             <div className="flex items-center justify-center lg:justify-start py-2 px-2 lg:p-6 lg:py-6 lg:px-8 w-full lg:w-auto">
                 <div className="text-white absolute left-4 lg:hidden">
-                    <FiMenu className="text-[30px]"/>
+                    
+                    
                 </div>
                 <div className ="flex-items-center">
                 
