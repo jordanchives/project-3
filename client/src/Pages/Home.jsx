@@ -15,7 +15,7 @@ export function Home() {
   
   useEffect(() => {
     if (data) {
-      setGames(data.games);
+      setGames(data.games.slice(0, 6));
     }
   }, [data]);
 
@@ -24,10 +24,10 @@ export function Home() {
   }
 
   return (
-    <main>
+    <main className="">
       <div>
         <SearchBar />
-        <Games games={games} />
+        <Games className="" games={games} />
       </div>
       {/* Categories game type */}
       <div className="" id="slider">

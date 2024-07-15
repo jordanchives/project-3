@@ -8,11 +8,11 @@ import Game from './Game';
 
 function Games({ games }) {
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4 mt-56">
+    <div className=" mt-48  ">
       <div className="text-center">
         <h2 className="title">Games</h2>
       </div>
-      <div className="mb-16">
+      <div className="p-4">
         <Swiper
           slidesPerView={3}
           spaceBetween={30}
@@ -23,8 +23,8 @@ function Games({ games }) {
           className="mySwiper"
         >
           {games.map(game => (
-            <SwiperSlide key={game._id}>
-              <Game game={game} />
+            <SwiperSlide className="" key={game.cover}>
+              <Game className="" game={game} />
             </SwiperSlide>
           ))}
         </Swiper>
