@@ -61,6 +61,20 @@ const typeDefs = `
     updateUser(username: String, email: String, password: String): User
     addTransaction(userId: ID!, games: [ID]!): Transaction
   }
+  type Query {
+    game(id: ID!): Game
+    games: [Game]
+  }
+  
+  type Game {
+    _id: ID!
+    name: String
+    storyline: String
+    summary: String
+    price: Float
+    cover: String
+    genres: [String]
+  }
 `;
 
 module.exports = typeDefs;

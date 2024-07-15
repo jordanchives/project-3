@@ -8,7 +8,7 @@ import Game from './Game';
 
 function Games({ games }) {
   return (
-    <div className=" mt-48  ">
+    <div className="mt-16">
       <div className="text-center">
         
       </div>
@@ -37,7 +37,7 @@ function Games({ games }) {
           }}
         >
           {games.map(game => (
-            <SwiperSlide className="testing" key={game._id}>
+            <SwiperSlide className="" key={game._id}>
               <Game className="" game={game} />
             </SwiperSlide>
           ))}
