@@ -34,9 +34,37 @@ export const QUERY_GAMES = gql`
   }
 `;
 
-export const QUERY_GAME = gql`
-  query Game($id: ID!) {
+export const QUERY_GAME_ID = gql`
+  query GamebyID($id: ID!) {
     game(id: $id) {
+      _id
+      name
+      storyline
+      summary
+      price
+      cover
+      genres
+    }
+  }
+`;
+
+export const QUERY_GAME_NAME = gql`
+  query GamebyName($name: String!) {
+    game(name: $name) {
+      _id
+      name
+      storyline
+      summary
+      price
+      cover
+      genres
+    }
+  }
+`;
+
+export const QUERY_GAMES_GENRE = gql`
+  query GamesbyGenre($name: String!) {
+    games(genre: $name) {
       _id
       name
       storyline
