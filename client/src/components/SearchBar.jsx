@@ -1,5 +1,5 @@
-import React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React from "react";
+import { useNavigate } from "react-router-dom";
 
 function SearchBar() {
   const navigate = useNavigate();
@@ -8,12 +8,15 @@ function SearchBar() {
     event.preventDefault();
 
     const form = event.target;
-    const query = new URLSearchParams(new FormData(form)).get('search');
+    const query = new URLSearchParams(new FormData(form)).get("search");
     navigate(`/search?term=${query}`);
   };
 
   return (
-    <form className="flex items-center mx-auto w-full max-w-xl" onSubmit={handleSubmit}>
+    <form
+      className="flex items-center mx-auto w-full max-w-xl lg:max-w-4xl" // Change width for large screens
+      onSubmit={handleSubmit}
+    >
       <label htmlFor="simple-search" className="sr-only">
         Search
       </label>
