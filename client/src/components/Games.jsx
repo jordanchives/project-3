@@ -10,20 +10,34 @@ function Games({ games }) {
   return (
     <div className=" mt-48  ">
       <div className="text-center">
-        <h2 className="title">Games</h2>
+        
       </div>
       <div className="p-4">
-        <Swiper
-          slidesPerView={3}
+      <Swiper
+          slidesPerView={1}
           spaceBetween={30}
           pagination={{
             clickable: true,
           }}
           modules={[Pagination]}
           className="mySwiper"
+          breakpoints={{
+            // when window width is >= 640px
+            333: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 1024px
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
         >
           {games.map(game => (
-            <SwiperSlide className="" key={game.cover}>
+            <SwiperSlide className="testing" key={game._id}>
               <Game className="" game={game} />
             </SwiperSlide>
           ))}

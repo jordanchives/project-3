@@ -15,7 +15,7 @@ export function Home() {
   
   useEffect(() => {
     if (data) {
-      setGames(data.games.slice(0, 6));
+      setGames(data.games.slice(0, 15));
     }
   }, [data]);
 
