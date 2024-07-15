@@ -8,6 +8,10 @@ const Test = () => {
   const { loading, data } = useQuery(QUERY_GAMES);
   const [games, setGames] = useState([]);
 
+
+  const gameData = data?.games || []
+  console.log(gameData)
+
   useEffect(() => {
     if (data) {
       setGames(data.games);

@@ -1,48 +1,50 @@
-import React, {useRef, useState} from "react";
+import React from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-
 import 'swiper/css';
 import 'swiper/css/free-mode';
 import 'swiper/css/pagination';
+import { Pagination } from 'swiper/modules';
+import Game from './Game';
 
-
-import { FreeMode, Pagination } from 'swiper/modules';
-
-function Games () {
+function Games({ games }) {
   return (
-    <div className="max-w-screen-2xl container mx-auto xl:px-28 px-4">
-         <div className="text-center">
-          <h2 className="title">Games</h2>
-         
-         </div>
-         {/* Games Cards */}
-         <div className="mb-16">
-         
+    <div className=" mt-48  ">
+      <div className="text-center">
+        
+      </div>
+      <div className="p-4">
       <Swiper
-        slidesPerView={3}
-        spaceBetween={30}
-        pagination={{
-          clickable: true,
-        }}
-        modules={[Pagination]}
-        className="mySwiper"
-      >
-        <SwiperSlide>Slide 1</SwiperSlide>
-        <SwiperSlide>Slide 2</SwiperSlide>
-        <SwiperSlide>Slide 3</SwiperSlide>
-        <SwiperSlide>Slide 4</SwiperSlide>
-        <SwiperSlide>Slide 5</SwiperSlide>
-        <SwiperSlide>Slide 6</SwiperSlide>
-        <SwiperSlide>Slide 7</SwiperSlide>
-        <SwiperSlide>Slide 8</SwiperSlide>
-        <SwiperSlide>Slide 9</SwiperSlide>
-      </Swiper>
-    
-         </div>
-       
-          
+          slidesPerView={1}
+          spaceBetween={30}
+          pagination={{
+            clickable: true,
+          }}
+          modules={[Pagination]}
+          className="mySwiper"
+          breakpoints={{
+            // when window width is >= 640px
+            333: {
+              slidesPerView: 1,
+            },
+            // when window width is >= 768px
+            768: {
+              slidesPerView: 2,
+            },
+            // when window width is >= 1024px
+            1024: {
+              slidesPerView: 3,
+            },
+          }}
+        >
+          {games.map(game => (
+            <SwiperSlide className="testing" key={game._id}>
+              <Game className="" game={game} />
+            </SwiperSlide>
+          ))}
+        </Swiper>
+      </div>
     </div>
   );
-};
+}
 
 export default Games;
