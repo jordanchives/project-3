@@ -2,14 +2,11 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAMES } from "../utils/queries";
 import Games from '../components/Games';
-import SearchBar from '../components/SearchBar';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
-import Footer from '../components/Footer';
-import flowbite from 'flowbite';
 
 
 export function Home() {
@@ -29,7 +26,6 @@ export function Home() {
   return (
     <main className="">
       <div>
-        <SearchBar />
        
         <Games className="" games={games} />
       </div>
@@ -61,7 +57,6 @@ export function Home() {
           </SwiperSlide>
         </Swiper>
       </div>
-      <Footer/>
       
     </main>
   );

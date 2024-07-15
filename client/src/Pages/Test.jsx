@@ -1,7 +1,7 @@
 import { useQuery } from "@apollo/client";
 import { QUERY_GAMES } from "../utils/queries";
 import { useState, useEffect } from "react";
-import Game from "../components/Game";
+import GameCard from "../components/GameCard";
 
 const Test = () => {
   console.log("Test");
@@ -25,7 +25,7 @@ const Test = () => {
   return (
     <div>
       {games.map((game) => (
-        <Game key={game._id} game={game} />
+        <GameCard key={game._id} game={game} />
       ))}
     </div>
   );
