@@ -1,9 +1,9 @@
 const typeDefs = `
   type User {
     _id: ID
-    username: String!
-    email: String!
-    password: String!
+    username: String
+    email: String
+    transactions: [Transaction]
   }
 
   type Game {
@@ -16,8 +16,20 @@ const typeDefs = `
     genres: [String]
   }
 
-  type Transaction {
+  type Genre {
     _id: ID
+    name: String
+  }
+
+  type TransactionGame {
+    game: ID
+    price: Float
+  }
+
+  type Transaction {
+    total: Float
+    transaction_date: String
+    games: [TransactionGame]
   }
 
   type Auth {
@@ -35,17 +47,19 @@ const typeDefs = `
     users: [User]
     user: User
     games: [Game]
-    game: Game
-    transactions: [Transaction]
-    transaction: Transaction
+    gameByName(name: String!): Game
+    gameById(gameId: ID!): Game
+    gamesByGenre(name: String!): [Game]
+    transactions(userId: ID!): [Transaction]
   }
 
   type Mutation {
     authenticateUser(username: String!, password: String!): AuthPayload!
-    login(email: String!, password: String!): Auth
+    login(username: String!, password: String!): Auth
     logout: Auth
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
+    addTransaction(userId: ID!, games: [ID]!): Transaction
   }
 `;
 
