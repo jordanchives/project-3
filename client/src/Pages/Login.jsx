@@ -12,11 +12,11 @@ function Login() {
     try {
       const { data } = await login({
         variables: {
-          email: e.target.email.value,
+          username: e.target.username.value,
           password: e.target.password.value,
         },
       });
-
+      localStorage.setItem("user_id", data.login.user._id);
       auth.login(data.login.token);
     } catch (err) {
       console.error(error);
@@ -31,11 +31,11 @@ function Login() {
         </h2>
         <form action="" className="flex flex-col" onSubmit={handleFormSubmit}>
           <input
-            placeholder="E-Mail"
+            placeholder="Username"
             className="bg-gray-700 text-white border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none transition ease-in-out duration-150 placeholder-gray-300"
             type="text"
-            name="email"
-            id="email"
+            name="username"
+            id="username"
           />
 
           <input
@@ -52,7 +52,7 @@ function Login() {
           </button>
           <p className="text-white mt-4 text-center">
             Don't have an account?
-            <a href="#" className="text-white-500 hover:underline mt-4 px-1 ">
+            <a href="/register" className="text-white-500 hover:underline mt-4 px-1 ">
               Register
             </a>
           </p>
