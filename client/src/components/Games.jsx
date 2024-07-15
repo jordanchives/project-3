@@ -1,19 +1,17 @@
-import React from 'react';
-import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/css';
-import 'swiper/css/free-mode';
-import 'swiper/css/pagination';
-import { Pagination } from 'swiper/modules';
-import Game from './Game';
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/free-mode";
+import "swiper/css/pagination";
+import { Pagination } from "swiper/modules";
+import GameCard from "./GameCard";
 
 function Games({ games }) {
   return (
     <div className="mt-16">
-      <div className="text-center">
-        
-      </div>
+      <div className="text-center"></div>
       <div className="p-4">
-      <Swiper
+        <Swiper
           slidesPerView={1}
           spaceBetween={30}
           pagination={{
@@ -34,11 +32,17 @@ function Games({ games }) {
             1024: {
               slidesPerView: 3,
             },
+            1400: {
+              slidesPerView: 4,
+            },
+            1800: {
+              slidesPerView: 5,
+            },
           }}
         >
-          {games.map(game => (
+          {games.map((game) => (
             <SwiperSlide className="" key={game._id}>
-              <Game className="" game={game} />
+              <GameCard className="" game={game} />
             </SwiperSlide>
           ))}
         </Swiper>

@@ -36,7 +36,7 @@ export const QUERY_GAMES = gql`
 
 export const QUERY_GAME_ID = gql`
   query GamebyID($id: ID!) {
-    game(id: $id) {
+    gameById(id: $id) {
       _id
       name
       storyline

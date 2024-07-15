@@ -1,47 +1,32 @@
 const { User, Game } = require('../models');
-const { findById } = require('../models/Game');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
 const resolvers = {
   Query: {
-    // return all users
     users: async () => {
       return User.find();
     },
-    // return a single user by username
     user: async (parent, { username }) => {
       return User.findOne({ username });
     },
-    // return all games
-    games: async (parent) => {
+    games: async () => {
       return Game.find();
     },
-    // return a single game by ID
-    gameById: async (parent, { gameId }) => {
-      return Game.findById(gameId);
+    gameById: async (parent, { id }) => {
+      return Game.findById(id);
     },
-    // return a single game by name
     gameByName: async (parent, { name }) => {
       return Game.findOne({ name: { $regex: name, $options: 'i' } });
     },
-    // return all games by genre
     gamesByGenre: async (parent, { name }) => {
       return Game.find({ genres: { $regex: name, $options: 'i' } });
     },
-    // return all transactions for a single user
     transactions: async (parent, { userId }) => {
       const user = await User.findById(userId);
       return user.transactions;
     },
-    // return a single transaction by ID
-    // transaction: async (parent, { userId, transactionId }) => {
-    //   const user = await User.findById(userId);
-    //   return user.transactions.findOne({ transactionId });
-    // },
   },
-
   Mutation: {
-    // add a new user
     addUser: async (parent, { username, email, password }) => {
       const user = await User.create({ username, email, password });
       const token = signToken(user);
@@ -50,25 +35,23 @@ const resolvers = {
       }
       return { token, user };
     },
-    // login a user
     login: async (parent, { username, password }) => {
-      const user = await User.findOne(username);
+      const user = await User.findOne({ username });
 
       if (!user) {
-        throw AuthenticationError;
+        throw new AuthenticationError('No user found with this username');
       }
 
       const correctPw = await user.comparePassword(password);
 
       if (!correctPw) {
-        throw AuthenticationError;
+        throw new AuthenticationError('Incorrect password');
       }
 
       const token = signToken(user);
 
       return { token, user };
     },
-    // new transaction, also adds games to user's library
     addTransaction: async (parent, { userId, games }) => {
       const user = await User.findById(userId);
       if (!user) {
@@ -95,4 +78,3 @@ const resolvers = {
 };
 
 module.exports = resolvers;
-
