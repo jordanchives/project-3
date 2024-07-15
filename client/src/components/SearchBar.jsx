@@ -5,11 +5,11 @@ function SearchBar() {
   const navigate = useNavigate(); // Get the navigate function
 
   const handleSubmit = (event) => {
-    event.preventDefault(); // Prevent the default form submission
+    event.preventDefault();
 
-    const form = event.target; // Get the form element
-    const query = new URLSearchParams(new FormData(form)).get('search'); // Get the search term
-    navigate(`/search?term=${query}`); // Navigate to the search page with the query
+    const form = event.target;
+    const query = new URLSearchParams(new FormData(form)).get('search');
+    navigate(`/search?term=${query}`);
   };
 
   return (
