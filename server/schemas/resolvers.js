@@ -15,8 +15,8 @@ const resolvers = {
     gameById: async (parent, { id }) => {
       return Game.findById(id);
     },
-    gameByName: async (parent, { name }) => {
-      return Game.findOne({ name: { $regex: name, $options: 'i' } });
+    gamesByName: async (parent, { name }) => {
+      return Game.find({ name: { $regex: name, $options: 'i' } });
     },
     gamesByGenre: async (parent, { name }) => {
       return Game.find({ genres: { $regex: name, $options: 'i' } });
