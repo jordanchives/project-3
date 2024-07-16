@@ -100,5 +100,60 @@ code {
   border-radius: 5px;
 }
 
+/* search results */
 
+.search-text-container {
+  width: 80% !important;
+}
+
+.search-title {
+  font-size: .6rem;
+  transition: .5s ease;
+}
+
+.search-genres {
+  font-size: .4rem;
+  transition: .5s ease;
+}
+
+.search-price {
+  font-size: .6rem;
+}
+
+.search-cart-button {
+  font-size: .4rem;
+}
+
+@media screen and (max-width: 200px) {
+  .search-title {
+    display: none !important;
+  }
+  .search-cart-button {
+    font-size: .25rem;
+  }
+  .search-price {
+    display: none !important;
+  }
+}
+
+@media screen and (max-width: 270px) {
+  .search-genres {
+    display: none !important;
+    width: 140% !important;
+  }
+  .search-title {
+    font-size: .5rem;
+  }
+}
+
+@media screen and (max-width: 360px) {
+  .search-cart-button {
+    font-size: .25rem;
+    padding: .5rem;
+    width: 120% !important;
+  }
+  .search-price {
+    font-size: .5rem;
+  }
+}
 
