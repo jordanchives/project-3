@@ -70,7 +70,7 @@ Logged in
             <h2 className="text-2xl text-white">Side Bar</h2>
             <div className="">
                 <ul className="text-white">
-                    <li><NavLink to="/Library">Library</NavLink></li>
+                    <li><NavLink to="/library">Library</NavLink></li>
                     {/* <li>Categories</li> */}
                     
 

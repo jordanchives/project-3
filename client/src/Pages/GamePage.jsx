@@ -90,7 +90,8 @@ function GamePage() {
           <div className="pt-5">
             <button
               className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
-                isInCart ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+                isInCart ? "opacity-50 cursor-not-allowed" : 
+                isInLibrary ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
               }`}
               onClick={handleAddToCart}
               disabled={isInCart}
