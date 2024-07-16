@@ -16,6 +16,13 @@ export const QUERY_USER = gql`
       _id
       username
       email
+      library {
+        _id
+        name
+        price
+        cover
+        genres
+      }
     }
   }
 `;

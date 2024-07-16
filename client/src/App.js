@@ -9,6 +9,7 @@ import Test from './Pages/Test';
 import Error from './Pages/Error';
 import Footer from './components/Footer';
 import GamePage from './Pages/GamePage';
+import Library from './components/Library';
 
 // Initialize Apollo Client
 const client = new ApolloClient({
@@ -33,6 +34,7 @@ function App() {
               <Route path="/register" element={<Register />} />
               <Route path="/test" element={<Test />} />
               <Route path="/games/:gameID" element={<GamePage />} />
+              <Route path="/library" element={<Library />} />
               <Route path="*" element={<Error />} />
             </Routes>
           </div>

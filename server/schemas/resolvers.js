@@ -6,8 +6,8 @@ const resolvers = {
     users: async () => {
       return User.find();
     },
-    user: async (parent, { username }) => {
-      return User.findOne({ username });
+    user: async (parent, { id }) => {
+      return User.findById(id).populate('library');
     },
     games: async () => {
       return Game.find();

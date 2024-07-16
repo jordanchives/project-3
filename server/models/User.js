@@ -40,10 +40,6 @@ userSchema.pre("save", async function (next) {
   }
 });
 
-userSchema.pre("remove", function (next) {
-  Game.deleteMany({ _id: { $in: this.library } }).then(() => next());
-});
-
 userSchema.methods.comparePassword = function (password) {
   return bcrypt.compare(password, this.password);
 };

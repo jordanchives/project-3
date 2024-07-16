@@ -4,6 +4,7 @@ const typeDefs = `
     username: String
     email: String
     transactions: [Transaction]
+    library: [Game]
   }
 
   type Game {
@@ -45,7 +46,7 @@ const typeDefs = `
 
   type Query {
     users: [User]
-    user(username: String!): User
+    user(id: ID!): User
     games: [Game]
     gameByName(name: String!): Game
     gameById(id: ID!): Game
