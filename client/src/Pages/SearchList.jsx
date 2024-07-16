@@ -23,19 +23,19 @@ function SearchList() {
   return (
     <ul>
       {games.map((game) => (
-        // <li key={game._id}>
-        //   <p>{game.name}</p>
-        // </li>
-        <a href={`/games/${game._id}`} class="flex flex-col items-center bg-white border border-gray-200 rounded-lg shadow md:flex-row md:max-w-xl hover:bg-gray-100 dark:border-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-        <img class="object-cover w-full rounded-t-lg h-96 md:h-auto md:w-48 md:rounded-none md:rounded-s-lg" src={game.cover} alt=""></img>
-        <div class="flex flex-col justify-between p-4 leading-normal">
-            <h5 class="mb-2 text-2xl font-bold tracking-tight text-gray-900 dark:text-white">{game.name}</h5>
-            <p class="mb-3 font-normal text-gray-700 dark:text-gray-400">{game.genres.join(', ')}</p>
-        </div>
-        <div class="flex items-center justify-between">
-            <span class="text-3xl font-bold text-gray-900 dark:text-white">{game.price}</span>
-            <a href="#" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
-        </div>
+        <a href={`/games/${game._id}`} class="search-a mb-3 flex flex-row items-center justify-between shadow w-full md:flex-row hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
+          <div class="search-img-container flex flex-col">
+              <img class="search-img object-cover w-auto max-h-28 " src={game.cover} alt=""></img>
+          </div>
+          <div class="search-text-container flex flex-col px-2 leading-normal">
+              <h5 class="search-title mb-2 font-bold tracking-tight text-gray-900 dark:text-white">{game.name}</h5>
+              <p class="search-genres font-normal text-gray-900 dark:text-gray-400">{game.genres.join(', ')}</p>
+          </div>
+
+          <div class="search-cart-container flex flex-col items-center pr-2">
+              <span class="search-price text-xs font-bold text-gray-900 dark:text-white">{game.price}</span>
+              <a href="#" class="search-cart-button text-white bg-gray-900 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 px-3 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
+          </div>
         </a>
       ))}
     </ul>
