@@ -133,6 +133,7 @@ code {
   font-size: .4rem;
 }
 
+
 @media screen and (max-width: 200px) {
   .search-title {
     display: none !important;
@@ -166,3 +167,13 @@ code {
   }
 }
 
+.active-sidebar{
+  width: 85%;
+ 
+}
+.delay {
+  
+  width: 100%;
+  transition-duration: .08s;
+  transition-delay: .08s;
+}

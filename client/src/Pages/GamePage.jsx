@@ -49,7 +49,7 @@ function GamePage() {
             <p className="text-lg text-black-800 mb-4">${game.price}</p>
             <p className="text-gray-700">{game.summary}</p>
           </div>
-          <div className="pt-5">
+          <div className="p-5">
             <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
               Add to Cart
             </button>
