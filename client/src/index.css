@@ -109,6 +109,7 @@ code {
   background: rgba(0, 0, 0);
   color: white;
   transition: opacity 0.3s ease;
+}
 
 .search-text-container {
   width: 80% !important;
