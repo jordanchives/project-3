@@ -5,7 +5,6 @@ import NavBar from './components/NavBar';
 import Login from './Pages/Login';
 import Home from './Pages/Home';
 import Register from './Pages/Register';
-import Test from './Pages/Test';
 import Error from './Pages/Error';
 import Footer from './components/Footer';
 import GamePage from './Pages/GamePage';
@@ -33,7 +32,7 @@ function App() {
               <Route path="/login" element={<Login />} />
               <Route path="/home" element={<Home />} />
               <Route path="/register" element={<Register />} />
-              <Route path="/test" element={<Test />} />
+              
               <Route path="/games/:gameID" element={<GamePage />} />
               <Route path="/library" element={<Library />} />
               <Route path="/search" element={<SearchList />} />

@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAME_ID } from '../utils/queries';
+import SideBar from '../components/SideBar';
 
 function GamePage() {
   const { gameID } = useParams();
@@ -33,6 +34,7 @@ function GamePage() {
 
   return (
     <main className="p-4">
+      <SideBar/>
       <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
         {/* Image Container */}
         <div className="relative lg:w-1/4 md:w-1/2 sm:w-full">
