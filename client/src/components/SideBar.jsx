@@ -6,6 +6,7 @@ export default function SideBar() {
     
     return (
         <>
+  
         {!isOpen ? 
         (<button className="fixed  z-30 flex items-center cursor-pointer right-3 top-6 mt-0" onClick={() => setIsOpen(!isOpen)}>
     <svg
@@ -22,7 +23,7 @@ export default function SideBar() {
     </svg>
         </button>) :
         ( 
-            <button className="text-xl text-white fixed top-4 r-4 bg-black "onClick={()=> setIsOpen(!isOpen)}>
+            <button className="text-xl text-white fixed top-4   bg-black "onClick={()=> setIsOpen(!isOpen)}>
                 X
                 </button>
     
