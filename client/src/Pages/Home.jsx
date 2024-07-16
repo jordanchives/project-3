@@ -7,11 +7,14 @@ import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
 import { Navigation } from 'swiper/modules';
+import SideBar from '../components/SideBar';
+
 
 
 export function Home() {
   const { loading, data } = useQuery(QUERY_GAMES);
   const [games, setGames] = useState([]);
+  
   
   useEffect(() => {
     if (data) {
@@ -22,11 +25,11 @@ export function Home() {
   if (loading) {
     return <div>Loading...</div>;
   }
-
+  
   return (
     <main className="">
-      <div>
-       
+ <SideBar />
+ <div>
         <Games className="" games={games} />
       </div>
       {/* Categories game type */}

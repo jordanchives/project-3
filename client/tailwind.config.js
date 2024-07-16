@@ -3,7 +3,12 @@ module.exports = {
   
   content: ["./src/**/*.{html,js,jsx}", "./node_modules/flowbite/**/*.js", 'node_modules/flowbite-react/lib/esm/**/*.js'],
   theme: {
-    extend: {},
+    extend: {
+      colors: {
+        "dark-purple":"#081a51",
+        "light-white":"rgba(255,255,255,0.17)"
+      }
+    },
   },
   plugins: [
     require('flowbite/plugin')
