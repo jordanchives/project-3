@@ -9,7 +9,7 @@ import Test from "./Pages/Test";
 import Error from "./Pages/Error";
 import Footer from "./components/Footer";
 import GamePage from "./Pages/GamePage";
-import Library from "./components/Library";
+import Library from "./Pages/Library";
 import SearchList from "./Pages/SearchList";
 import { GameProvider } from "./utils/GlobalState";
 
