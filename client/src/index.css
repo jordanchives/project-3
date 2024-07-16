@@ -100,7 +100,15 @@ code {
   border-radius: 5px;
 }
 
-/* search results */
+.library-game-title {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 10px;
+  background: rgba(0, 0, 0);
+  color: white;
+  transition: opacity 0.3s ease;
 
 .search-text-container {
   width: 80% !important;
