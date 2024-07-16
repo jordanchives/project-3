@@ -48,7 +48,7 @@ const typeDefs = `
     users: [User]
     user(id: ID!): User
     games: [Game]
-    gameByName(name: String!): Game
+    gamesByName(name: String!): [Game]
     gameById(id: ID!): Game
     gamesByGenre(name: String!): [Game]
     transactions(userId: ID!): [Transaction]

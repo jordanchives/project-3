@@ -11,8 +11,8 @@ export const QUERY_USERS = gql`
 `;
 
 export const QUERY_USER = gql`
-  query User($id: ID!) {
-    user(id: $id) {
+  query User($username: String!) {
+    user(username: $username) {
       _id
       username
       email
@@ -42,7 +42,7 @@ export const QUERY_GAMES = gql`
 `;
 
 export const QUERY_GAME_ID = gql`
-  query GamebyID($id: ID!) {
+  query gameById($id: ID!) {
     gameById(id: $id) {
       _id
       name
@@ -55,9 +55,9 @@ export const QUERY_GAME_ID = gql`
   }
 `;
 
-export const QUERY_GAME_NAME = gql`
-  query GamebyName($name: String!) {
-    game(name: $name) {
+export const QUERY_GAMES_NAME = gql`
+  query gamesByName($name: String!) {
+    gamesByName(name: $name) {
       _id
       name
       storyline
@@ -70,7 +70,7 @@ export const QUERY_GAME_NAME = gql`
 `;
 
 export const QUERY_GAMES_GENRE = gql`
-  query GamesbyGenre($name: String!) {
+  query gamesbyGenre($name: String!) {
     games(genre: $name) {
       _id
       name

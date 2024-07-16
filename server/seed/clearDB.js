@@ -8,7 +8,7 @@ module.exports = async (modelName, collectionName) => {
       .toArray();
 
     if (modelExists.length > 0) {
-      await models[modelName].db.db.dropCollection(collectionName);
+      await models[modelName].db.dropCollection(collectionName);
     }
   } catch (error) {
     console.error(error);
