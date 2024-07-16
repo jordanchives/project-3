@@ -50,7 +50,13 @@ const Register = () => {
             className="bg-gray-700 text-white border-0 rounded-md p-2 mb-4 focus:bg-gray-600 focus:outline-none transition ease-in-out duration-150 placeholder-gray-300"
             type="password"
           />
-
+          <span
+            style={{ color: "white" }}
+            className={visible ? "invisible" : ""}
+          >
+            {" "}
+            Problem Creating User!
+          </span>
           <button
             onClick={handleRegister}
             className="bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full text-white font-medium py-2 px-4 hover:bg-indigo-600 hover:to-blue-600 transtion ease-in duration-200"
@@ -64,13 +70,6 @@ const Register = () => {
               Sign In
             </a>
           </p>
-          <span
-            style={{ color: "white" }}
-            className={visible ? "invisible" : ""}
-          >
-            {" "}
-            Problem Creating User!
-          </span>
         </form>
       </div>
     </div>
