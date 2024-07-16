@@ -6,6 +6,7 @@ import auth from "../utils/auth";
 
 function Login() {
   const [login, { error }] = useMutation(LOGIN_USER);
+  const [visible, setVisible] = useState(true);
 
   const handleFormSubmit = async (e) => {
     e.preventDefault();
@@ -19,7 +20,8 @@ function Login() {
       localStorage.setItem("user_id", data.login.user._id);
       auth.login(data.login.token);
     } catch (err) {
-      console.error(error);
+      setVisible(false);
+      console.error(err);
     }
   };
 
@@ -44,6 +46,13 @@ function Login() {
             type="password"
             id="password"
           />
+          <span
+            style={{ color: "white" }}
+            className={`${visible ? "invisible" : ""} mt-4 text-center pb-4`}
+          >
+            {" "}
+            Invalid Login Credentials!
+          </span>
           <button
             className="bg-gradient-to-r from-indigo-500 to-blue-500 rounded-full text-white font-medium py-2 px-4 hover:bg-indigo-600 hover:to-blue-600 transtion ease-in duration-200"
             type="submit"
