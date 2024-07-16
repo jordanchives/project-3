@@ -35,8 +35,8 @@ export const QUERY_GAMES = gql`
 `;
 
 export const QUERY_GAME_ID = gql`
-  query gamesById($id: ID!) {
-    game(id: $id) {
+  query gameById($id: ID!) {
+    gameById(id: $id) {
       _id
       name
       storyline
@@ -50,7 +50,7 @@ export const QUERY_GAME_ID = gql`
 
 export const QUERY_GAMES_NAME = gql`
   query gamesByName($name: String!) {
-    games(name: $name) {
+    gamesByName(name: $name) {
       _id
       name
       storyline

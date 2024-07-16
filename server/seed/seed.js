@@ -20,7 +20,7 @@ function createTransaction(games) {
 db.once("open", async () => {
   try {
     await clearDB("User", "users");
-    await clearDB("Games", "games");
+    await clearDB("Game", "games");
 
     const gamesData = await getGamesData();
     console.log("Fetched Games Data:", gamesData); // Debug log
@@ -57,8 +57,8 @@ db.once("open", async () => {
       usersWithTransactions.map((user) => User.create(user))
     );
 
-    console.log("Seed data successfully added!");
-    console.log("Seeded game count:", createdGames.insertedCount);
+    // console.log("Seed data successfully added!");
+    // console.log("Seeded game count:", createdGames.insertedCount);
     console.log("Seeded user count:", usersData.length);
     process.exit(0);
   } catch (error) {
