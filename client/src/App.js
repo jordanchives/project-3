@@ -22,6 +22,8 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+// add the apollo middleware that adds the id_token to every request's authorization header
+
 function App() {
   return (
     <ApolloProvider client={client}>
