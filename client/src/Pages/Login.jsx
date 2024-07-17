@@ -9,7 +9,7 @@ function Login() {
   const [visible, setVisible] = useState(true);
 
   if(auth.loggedIn()) {
-    window.location.assign("/home");
+    window.location.assign("/");
   }
   const handleFormSubmit = async (e) => {
     e.preventDefault();
