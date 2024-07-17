@@ -58,11 +58,12 @@ export const LOGOUT_USER = gql`
 export const TRANSACTION = gql`
   mutation addTransaction($transaction: TransactionInput!) {
     addTransaction(transaction: $transaction) {
-      _id
-      purchaseDate
+      transaction_date
+      total
       games {
-        _id
-        name
+        game {
+          _id
+        }
         price
       }
     }

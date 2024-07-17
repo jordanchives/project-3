@@ -28,8 +28,8 @@ const typeDefs = `
   }
 
   type Transaction {
-    total: Float
     transaction_date: String
+    total: Float
     games: [TransactionGame]
   }
 

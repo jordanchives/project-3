@@ -59,7 +59,7 @@ function Cart () {
     setGames(state.cart.filter((cartGame) => cartGame._id !== game._id));
   };
 
-  const handleTransaction = (event) => {
+  const handleTransaction = async (event) => {
     event.preventDefault();
     console.log(games, "games");
     try {
@@ -67,9 +67,10 @@ function Cart () {
       console.log({gameIds});
       const newTransaction = { userId: userID, games: gameIds };
       console.log({newTransaction});
-      const data = addTransaction({
+      const { data } = await addTransaction({
         variables: { transaction: newTransaction },
       });
+      console.log(data);
 
       if (data) {
         // Update the user's library and transactions in the state or refetch the user data
@@ -77,7 +78,7 @@ function Cart () {
         dispatch({ type: 'CLEAR_CART' });
       }
     } catch (error) {
-      console.error('Transaction error:', transactionError);
+      console.error('Transaction error:', error);
     }
   };
 

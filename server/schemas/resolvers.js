@@ -56,7 +56,6 @@ const resolvers = {
     addTransaction: async (parent, { transaction }) => {
       const { userId, games } = transaction;
       const user = await User.findById(userId);
-      console.log('hello')
       if (!user) throw new AuthenticationError('You need to be logged in!');
 
       let total = 0;
@@ -66,7 +65,6 @@ const resolvers = {
         const game = await Game.findById(games[i]);
         // total += game.price;
         transactionGames.push({ game: game._id, price: game.price });
-        console.log({transactionGames});
       }
 
       const newTransaction = {
