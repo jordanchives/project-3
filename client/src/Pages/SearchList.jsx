@@ -80,23 +80,4 @@ function SearchList() {
     </ul>
   );
 }
-
-
-
 export default SearchList;
-
-          //     {/* <a href="#" className="search-cart-button text-white bg-gray-900 hover:bg-gray-500 focus:ring-4 focus:outline-none focus:ring-blue-300 px-3 py-1.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Add to cart</a>
-          // <button
-          //   className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
-          //     isInCart ? "opacity-50 cursor-not-allowed" : 
-          //     isInLibrary ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
-          //   }`}
-          //   onClick={handleAddToCart}
-          //   disabled={isInCart}
-          // >
-          //   {isInCart
-          //     ? "In Cart"
-          //     : isInLibrary
-          //     ? "In Library"
-          //     : "Add to Cart"}
-          // </button> */}
