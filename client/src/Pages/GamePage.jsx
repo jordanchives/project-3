@@ -94,7 +94,7 @@ function GamePage() {
                 isInLibrary ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
               }`}
               onClick={handleAddToCart}
-              disabled={isInCart}
+              disabled={isInCart || isInLibrary}
             >
               {isInCart
                 ? "In Cart"
