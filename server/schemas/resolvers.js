@@ -54,6 +54,7 @@ const resolvers = {
     },
     addTransaction: async (parent, { userId, games }) => {
       const user = await User.findById(userId);
+      console.log(userId, games, 'transaction');
       if (!user) {
         throw new AuthenticationError('You need to be logged in!');
       }

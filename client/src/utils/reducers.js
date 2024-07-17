@@ -20,7 +20,7 @@ export const reducer = (state, action) => {
 
     case REMOVE_FROM_CART:
       const updatedCartRemove = state.cart.filter(
-        (game) => game._id !== action._id
+        (game) => game._id !== action.game._id
       );
       localStorage.setItem("cart", JSON.stringify(updatedCartRemove));
       return {

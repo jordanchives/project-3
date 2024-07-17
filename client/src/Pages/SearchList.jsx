@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useLocation } from 'react-router-dom';
-import { useQuery, useLazyQuery } from '@apollo/client';
+import { useLazyQuery } from '@apollo/client';
 import { QUERY_GAMES_NAME, QUERY_USER } from "../utils/queries";
 import { ADD_TO_CART } from "../utils/actions";
 import { useGameContext } from "../utils/GlobalState";
