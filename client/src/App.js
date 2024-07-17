@@ -22,7 +22,7 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
-// add that applo middle ware thing that adds the id_token to every reque's authorization header
+// add the apollo middleware that adds the id_token to every request's authorization header
 
 function App() {
   return (
