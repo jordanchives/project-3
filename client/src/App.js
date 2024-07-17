@@ -11,6 +11,7 @@ import Footer from "./components/Footer";
 import GamePage from "./Pages/GamePage";
 import Library from "./Pages/Library";
 import SearchList from "./Pages/SearchList";
+import Cart from "./Pages/Cart";
 import { GameProvider } from "./utils/GlobalState";
 
 // Initialize Apollo Client
@@ -42,6 +43,7 @@ function App() {
                   <Route path="/games/:gameID" element={<GamePage />} />
                   <Route path="/library" element={<Library />} />
                   <Route path="/search" element={<SearchList />} />
+                  <Route path="/cart" element={<Cart />} />
                   <Route path="*" element={<Error />} />
                 </Routes>
               </GameProvider>
