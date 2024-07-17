@@ -33,6 +33,11 @@ const typeDefs = `
     games: [TransactionGame]
   }
 
+  input TransactionInput {
+    userId: ID!
+    games: [ID!]!
+  }
+
   type Auth {
     token: ID!
     user: User
@@ -60,7 +65,7 @@ const typeDefs = `
     logout: Auth
     addUser(username: String!, email: String!, password: String!): Auth
     updateUser(username: String, email: String, password: String): User
-    addTransaction(userId: ID!, games: [ID]!): Transaction
+    addTransaction(transaction: TransactionInput!): Transaction
   }
 `;
 
