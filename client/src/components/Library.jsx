@@ -14,6 +14,10 @@ function Library() {
   const userData = data?.user || {};
   const library = userData.library || [];
 
+  if (library.length === 0) {
+    return <p>No games in your library.</p>;
+  }
+
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-2xl font-bold mb-4 text-white">Your Library</h1>

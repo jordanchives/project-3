@@ -69,7 +69,7 @@ Logged in
             <div className="">
                 <ul className="text-white">
                     <li><NavLink to="/library">Library</NavLink></li>
-                    <li><NavLink to="/home">Home</NavLink></li>
+
                     {/* <li>Categories</li> */}
                     
 
