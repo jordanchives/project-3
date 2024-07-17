@@ -4,6 +4,7 @@ import { QUERY_USER } from "../utils/queries";
 import { REMOVE_FROM_CART } from '../utils/actions';
 import { TRANSACTION } from '../utils/mutations'; 
 import { useGameContext } from "../utils/GlobalState";
+import auth from "../utils/auth";
 
 function Cart () {
   const [user, setUser] = useState(null);
@@ -13,12 +14,16 @@ function Cart () {
   const [total, setTotal] = useState(0);
   const [state, dispatch] = useGameContext();
   const userID = localStorage.getItem("user_id");
+  
 
   const [getUser, { loading: loadingUser, error: userError, data: userData }] = useLazyQuery(QUERY_USER);
 
   let cartItems = state.cart;
 
   useEffect(() => {
+    if(!auth.loggedIn()) {
+      window.location.assign("/login");
+    }
     const loadUser = async () => {
       try {
         const userResponse = await getUser({ variables: { id: userID } });
