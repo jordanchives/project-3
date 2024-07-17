@@ -67,7 +67,7 @@ function Cart () {
 
     return (
       <div>
-        <h1 className="text-2xl font-bold mb-2">Cart</h1>
+        <h1 className="text-2xl font-bold mb-2 text-white">Cart</h1>
         <ul>
           {games.map((game) => (
             <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center justify-between shadow w-full md:flex-row hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
@@ -75,12 +75,12 @@ function Cart () {
                 <img src={game.cover} alt={game.name} className="search-img object-cover w-auto max-h-28" />
               </div>
               <div className="search-text-container flex flex-col px-2 leading-normal">
-                <h5 className="search-title mb-2 font-bold tracking-tight text-gray-900 dark:text-white">{game.name}</h5>
-                <p className="search-genres font-normal text-gray-900 dark:text-gray-400">{game.genres.join(', ')}</p>
+                <h5 className="search-title mb-2 font-bold tracking-tight text-white">{game.name}</h5>
+                <p className="search-genres font-normal  text-white">{game.genres.join(', ')}</p>
               </div>
 
               <div className="search-cart-container flex flex-col items-center pr-2">
-                <span className="search-price text-xs font-bold text-gray-900 dark:text-white">{game.price}</span>
+                <span className="search-price text-3xl font-bold  text-white">{game.price}</span>
               
                 <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled`} onClick={(event) => handleRemoveFromCart(event, game)}>
                     Remove
@@ -91,9 +91,9 @@ function Cart () {
         </ul>
         <div>
             <div>
-                <h3>Subtotal: ${subTotal.toFixed(2)}</h3>
-                <h3>Tax: ${tax.toFixed(2)}</h3>
-                <h3>Total: ${total.toFixed(2)}</h3>
+                <h3 className="text-white">Subtotal: ${subTotal.toFixed(2)}</h3>
+                <h3 className="text-white">Tax: ${tax.toFixed(2)}</h3>
+                <h3 className="text-white">Total: ${total.toFixed(2)}</h3>
             </div>
             <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled`} onClick={(event) => handleTransaction(event, userID, games)}>
                 Checkout
