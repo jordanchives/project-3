@@ -2,12 +2,10 @@ import React, { useState, useEffect } from 'react';
 import { useQuery } from '@apollo/client';
 import { QUERY_GAMES } from "../utils/queries";
 import Games from '../components/Games';
-import { Swiper, SwiperSlide } from 'swiper/react';
+
 import 'swiper/css';
 import 'swiper/css/effect-coverflow';
 import 'swiper/css/pagination';
-import { Navigation } from 'swiper/modules';
-import SideBar from '../components/SideBar';
 import { NavLink } from 'react-router-dom';
 import Auth from "../utils/auth";
 
@@ -64,13 +62,14 @@ Logged in
     
     )
     } 
-       <div className={`top-0 right-0 fixed bg-blue-500 w-[15vw] h-full p-10
+       <div className={`top-0 right-0 fixed bg-blue-500 w-[15vw] h-full p-10 bg-opacity-60 rounded-md
        ${isOpen ? 'translate-x-0':'translate-x-full'} ease-in-out duration-300`}
        >
             <h2 className="text-2xl text-white">Side Bar</h2>
             <div className="">
                 <ul className="text-white">
-                    <li><NavLink to="/Library">Library</NavLink></li>
+                    <li><NavLink to="/library">Library</NavLink></li>
+                    <li><NavLink to="/home">Home</NavLink></li>
                     {/* <li>Categories</li> */}
                     
 
