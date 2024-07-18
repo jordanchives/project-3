@@ -54,7 +54,7 @@ function SearchList() {
   }
 
   return (
-    <ul>
+    <ul className='list'>
       {games.map((game) => (
         <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center shadow w-full md:flex-row">
           <div className='list-container'>

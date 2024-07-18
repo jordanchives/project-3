@@ -13,7 +13,7 @@ function Games({ games }) {
   return (
     <div className="mt-16">
       <div className="text-center"></div>
-      <div className="p-4">
+      <div className="swiper-container">
         <Swiper
           slidesPerView={1}
           navigation={true} // Include navigation arrows
