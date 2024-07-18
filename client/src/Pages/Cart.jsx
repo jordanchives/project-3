@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { useLazyQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from "../utils/queries";
-import { REMOVE_FROM_CART } from '../utils/actions';
+import { REMOVE_FROM_CART, CLEAR_CART } from '../utils/actions';
 import { TRANSACTION } from '../utils/mutations'; 
 import { useGameContext } from "../utils/GlobalState";
 // import { AuthenticationError } from 'apollo-server-express';
@@ -76,7 +76,7 @@ function Cart () {
       if (data) {
         // Update the user's library and transactions in the state or refetch the user data
         // Reset the cart state
-        dispatch({ type: 'CLEAR_CART' });
+        dispatch({ type: CLEAR_CART });
         console.log('Transaction successful:', data);
       }
     } catch (error) {
