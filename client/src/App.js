@@ -31,8 +31,8 @@ function App() {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <NavBar />
-          <main className="main-content-container flex-grow">
-            <div className="main-content-gradient p-5">
+          <main className="main-content-container">
+            <div className="main-content-gradient">
               <GameProvider>
                 <Routes>
                   <Route index element={<Home />} />
