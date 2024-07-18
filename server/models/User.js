@@ -12,7 +12,7 @@ const transactionGamesSchema = new Schema(
 
 const userTransactionSchema = new Schema(
   {
-    transaction_date: { type: Date, required: true },
+    transaction_date: { type: Date, required: true, default: Date.now },
     total: { type: Number, required: true },
     games: [transactionGamesSchema],
   },

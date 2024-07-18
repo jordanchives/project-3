@@ -1,6 +1,7 @@
 const { User, Game } = require('../models');
 const { signToken, AuthenticationError } = require('../utils/auth');
 
+
 const resolvers = {
   Query: {
     users: async () => {
@@ -52,28 +53,34 @@ const resolvers = {
 
       return { token, user };
     },
-    addTransaction: async (parent, { userId, games }) => {
+    addTransaction: async (parent, { transaction }) => {
+      console.log("hello")
+      console.log(transaction)
+      const { userId, games } = transaction;
       const user = await User.findById(userId);
-      console.log(userId, games, 'transaction');
-      if (!user) {
-        throw new AuthenticationError('You need to be logged in!');
-      }
+      if (!user) throw new AuthenticationError();
+
       let total = 0;
       const transactionGames = [];
       for (let i = 0; i < games.length; i++) {
-        if (user.library.includes(games[i])) {
-          throw new Error('You already own this game!');
-        }
+        if (user.library.includes(games[i])) throw new Error('You already own this game!');
         const game = await Game.findById(games[i]);
         total += game.price;
         transactionGames.push({ game: game._id, price: game.price });
       }
-      const transaction = { total: total, games: transactionGames };
+
+      const newTransaction = {
+        transaction_date: new Date(),
+        total: total,
+        games: transactionGames,
+      };
+
       await User.findByIdAndUpdate(
         { _id: userId },
-        { $push: { transactions: transaction, library: { $each: games } } }
+        { $push: { transactions: newTransaction, library: { $each: games } } }
       );
-      return transaction;
+
+      return newTransaction;
     },
   },
 };

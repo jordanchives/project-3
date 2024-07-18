@@ -1,4 +1,4 @@
-import { gql } from '@apollo/client';
+import { gql } from "@apollo/client";
 
 export const ADD_USER = gql`
   mutation addUser($username: String!, $email: String!, $password: String!) {
@@ -38,7 +38,7 @@ export const AUTH_USER = gql`
   mutation authenticateUser($username: String!, $password: String!) {
     authenticateUser(username: $username, password: $password) {
       success
-      message 
+      message
       user {
         _id
         username
@@ -57,14 +57,13 @@ export const LOGOUT_USER = gql`
 
 export const TRANSACTION = gql`
   mutation addTransaction($transaction: TransactionInput!) {
-    addTransaction(transaction: $transaction) {
-      _id
-      purchaseDate
-      games {
-        _id
-        name
-        price
-      }
+	  addTransaction(transaction: $transaction) {
+		  transaction_date
+		  total
+			games {
+					game
+					price
+				}
     }
   }
 `;

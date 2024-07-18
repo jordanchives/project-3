@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
-import { useLazyQuery } from '@apollo/client';
+import { useLazyQuery, useMutation } from '@apollo/client';
 import { QUERY_USER } from "../utils/queries";
-import { REMOVE_FROM_CART } from '../utils/actions';
+import { REMOVE_FROM_CART, CLEAR_CART } from '../utils/actions';
 import { TRANSACTION } from '../utils/mutations'; 
 import { useGameContext } from "../utils/GlobalState";
 import auth from "../utils/auth";
+
 
 function Cart () {
   const [user, setUser] = useState(null);
@@ -17,8 +18,10 @@ function Cart () {
   
 
   const [getUser, { loading: loadingUser, error: userError, data: userData }] = useLazyQuery(QUERY_USER);
+  const [addTransaction, { loading: transactionLoading, error: transactionError }] = useMutation(TRANSACTION);
 
-  let cartItems = state.cart;
+
+  const cartItems = state.cart;
 
   useEffect(() => {
     if(!auth.loggedIn()) {
@@ -35,17 +38,17 @@ function Cart () {
         setGames(cartItems);
 
         // Calculate the subtotal
-        const cartItemsSubTotal = cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
+        const cartItemsSubTotal = await cartItems.reduce((sum, item) => sum + parseFloat(item.price), 0);
         setSubTotal(cartItemsSubTotal);
-        console.log(cartItemsSubTotal, "cartItemsSubTotal");
+
         // Calculate the tax (8% of the subtotal)
-        const cartItemsTax = cartItemsSubTotal * 0.08;
+        const cartItemsTax = await cartItemsSubTotal * 0.08;
         setTax(cartItemsTax);
-        console.log(cartItemsTax, "cartItemsTax");
+
         // Calculate the total (subtotal + tax)
-        const cartItemsTotal = cartItemsSubTotal + cartItemsTax;
+        const cartItemsTotal = await cartItemsSubTotal + cartItemsTax;
         setTotal(cartItemsTotal);
-        console.log(cartItemsTotal, "cartItemsTotal");
+
       } catch (error) {
         console.error("Error loading user:", error);
       }
@@ -61,9 +64,31 @@ function Cart () {
     setGames(state.cart.filter((cartGame) => cartGame._id !== game._id));
   };
 
-  const handleTransaction = (event, games) => {
-    dispatch({ type: TRANSACTION, games });
+  const handleTransaction = async (event) => {
+    event.preventDefault();
+    console.log(games, "games");
+  
+    try {
+      const gameIds = games.map(game => game._id);
+      console.log({ gameIds });
+      const newTransaction = { userId: userID, games: gameIds };
+      console.log({ newTransaction });
+  
+      const { data } = await addTransaction({
+        variables: { transaction: newTransaction },
+      });
+  
+      if (data) {
+        // Update the user's library and transactions in the state or refetch the user data
+        // Reset the cart state
+        dispatch({ type: CLEAR_CART });
+        console.log('Transaction successful:', data);
+      }
+    } catch (error) {
+      console.error('Transaction error:', error.message || transactionError.message);
+    }
   };
+  
 
     return (
       <div>
@@ -95,7 +120,7 @@ function Cart () {
                 <h3 className="text-white">Tax: ${tax.toFixed(2)}</h3>
                 <h3 className="text-white">Total: ${total.toFixed(2)}</h3>
             </div>
-            <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled`} onClick={(event) => handleTransaction(event, userID, games)}>
+            <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled`} onClick={handleTransaction}>
                 Checkout
             </button>
         </div>

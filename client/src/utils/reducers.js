@@ -1,4 +1,4 @@
-import { ADD_TO_CART, REMOVE_FROM_CART, LOAD_CART } from "./actions";
+import { LOAD_CART, ADD_TO_CART, REMOVE_FROM_CART, CLEAR_CART } from "./actions";
 
 export const reducer = (state, action) => {
   switch (action.type) {
@@ -26,6 +26,13 @@ export const reducer = (state, action) => {
       return {
         ...state,
         cart: updatedCartRemove,
+      };
+
+    case CLEAR_CART:
+        localStorage.removeItem("cart");
+        return {
+          ...state,
+          cart: [],
       };
 
     default:
