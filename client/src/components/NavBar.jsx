@@ -88,7 +88,7 @@ function NavBar() {
       <div
         ref={sidebarRef}
         className={`sidebar fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out ${
-          open ? "translate-x-0" : "translate-x-full sidebar-open"
+          open ? "translate-x-0 sidebar-open" : "translate-x-full"
         } z-50`}
       >
         <Sidebar className="" aria-label="Sidebar">
