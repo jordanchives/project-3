@@ -92,7 +92,7 @@ html, body {
 
 .sidebar {
   font-family: 'Titillium-Light';
-  background-color: blue !important;
+  background-color: var(--primary) !important;
 }
 
 .sidebar-open {
@@ -457,10 +457,6 @@ body {
     display: flex;
     justify-content: center;
   }
-}
-
-.active-sidebar{
-  width: 85%;
 }
 
 .delay {
