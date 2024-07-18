@@ -38,7 +38,7 @@ const Register = () => {
         <form onSubmit={handleRegister} className="flex flex-col">
           <input
             onChange={(e) => setUsername(e.target.value)}
-            placeholder="UserName"
+            placeholder="Username"
             className="bg-[#D6C9AE] text-[#151624] border-0 rounded-md p-2 mb-4 focus:bg-[#F2A007] focus:outline-none transition ease-in-out duration-150 placeholder-[#151624]"
             type="text"
           />
