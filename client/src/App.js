@@ -31,7 +31,7 @@ function App() {
       <BrowserRouter>
         <div className="flex flex-col min-h-screen">
           <NavBar />
-          <main className="main-content-container">
+          <main className="main-content-container flex-grow">
             <div className="main-content-gradient">
               <GameProvider>
                 <Routes>

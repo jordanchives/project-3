@@ -54,7 +54,7 @@ function NavBar() {
   }, [open]);
 
   return (
-    <div className="flex flex-col lg:flex-row items-center bg-[#171a21]">
+    <div className="flex flex-col lg:flex-row items-center">
       {/* Top Bar */}
       <div className="topbar flex items-center justify-between w-full lg:px-6 lg:py-4 px-2 py-2">
         {/* Header */}
@@ -87,7 +87,7 @@ function NavBar() {
       {/* Slide-Out Menu */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full bg-[#171a21] transition-transform duration-300 ease-in-out ${
+        className={`sidebar fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out ${
           open ? "translate-x-0" : "translate-x-full"
         } z-50`}
       >
@@ -123,17 +123,18 @@ function NavBar() {
                   type="text"
                   id="simple-search"
                   name="search"
-                  className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full ps-10 p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                  spellCheck="false"
+                  className="rounded-lg block w-full ps-10 p-2.5"
                   placeholder="Search..."
                   required
                 />
               </div>
             </form>
-            <ul className="flex flex-col font-medium mt-4 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
+            <ul className="sidebar-list flex flex-col mt-4 rounded-lg">
               <li>
                 <a
                   href="/"
-                  className="block py-2 px-3 text-white bg-blue-700 rounded dark:bg-blue-600"
+                  className="block py-2 px-3 rounded"
                   aria-current="page"
                 >
                   Home
@@ -145,7 +146,7 @@ function NavBar() {
                   <li>
                     <a
                       href="/login"
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      className="block py-2 px-3 text-gray-900 rounded dark:text-gray-400"
                     >
                       Login
                     </a>
@@ -153,7 +154,7 @@ function NavBar() {
                   <li>
                     <a
                       href="/register"
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      className="block py-2 px-3 text-gray-900 rounded dark:text-gray-400"
                     >
                       Sign Up
                     </a>
@@ -164,7 +165,7 @@ function NavBar() {
                   <li>
                     <a
                       href="/cart"
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      className="block py-2 px-3 text-gray-900 rounded dark:text-gray-400"
                     >
                       Cart
                     </a>
@@ -172,15 +173,15 @@ function NavBar() {
                   <li>
                     <a
                       href="/library"
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                      className="block py-2 px-3 text-gray-900 rounded"
                     >
                       Library
                     </a>
                   </li>
-                  <li>
+                  <li className="logout-button rounded">
                     <button
                       onClick={handleLogout}
-                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white w-full text-left"
+                      className="sidebar-list-button block py-2 px-3 text-gray-900 rounded"
                     >
                       Logout
                     </button>
