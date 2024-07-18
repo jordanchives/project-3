@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo2 from "../assets/images/logo2.svg";
+import burger from "../assets/images/burger.svg";
 import { useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
 import { Button, Sidebar } from 'flowbite-react';
@@ -65,26 +66,18 @@ function NavBar() {
           </a>
         </div>
 
-        {/* Right: Hamburger Button */}
+        {/* Hamburger Button */}
         <button
           onClick={() => setOpen(!open)}
           type="button"
           id="navbar-hamburger"
-          className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="hamburger inline-flex items-center justify-center p-2 w-14 h-14 text-sm text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-hamburger"
           aria-expanded={open}
           aria-label="Toggle navigation menu"
         >
-          <svg className="hamburger w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14">
-            <path
-              stroke="#D6C9AE"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
+        <img className="" src={burger} alt="Hamburger menu icon" aria-hidden="true" />
+      </button>
       </div>
 
       {/* Slide-Out Menu */}

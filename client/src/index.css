@@ -12,7 +12,6 @@
   --primary-light: #D6C9AE;
   --secondary: #151624;
   --accent-color: #ffcc00;
-  --background-color: #ffffff;
   --text-color: #000000;
 }
 
@@ -23,14 +22,25 @@
 
 
 @font-face {
+  font-family: 'Titillium-Bold';
+  src: url('./assets/fonts/Titillium/TitilliumWeb-Bold.ttf') format('opentype');
+}
+
+@font-face {
   font-family: 'Titillium-Light';
   src: url('./assets/fonts/Titillium/TitilliumWeb-Light.ttf') format('opentype');
 }
 
+html {
+  width: 100vw;
+  height: 100vh;
+}
+
+/* background */
 .main-content-container {
   position: relative;
-  z-index: 0;
   font-family: 'Titillium-Light';
+  z-index: 0;
 }
 
 .main-content-container::before {
@@ -40,34 +50,23 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-image: url('./assets/images/colors.png');
+  background-image: 
+  linear-gradient(217deg, rgba(242, 179, 7, 0.514), rgba(255,0,0,0) 55%),
+  linear-gradient(127deg, rgba(166, 255, 0, 0.315), rgba(0,255,0,0) 55%),
+  linear-gradient(177deg, rgba(252, 111, 56, 0.363), rgba(255,0,0,0) 55%),
+  linear-gradient(336deg, rgba(0,0,255,.5), rgba(0,0,255,0) 55%),
+  url('./assets/images/colors.png');
+  background-repeat: repeat;
   filter: blur(1px);
-  pointer-events: none;
-}
-
-.main-content-gradient {
-  position: relative;
-  z-index: 0;
-}
-
-.main-content-gradient::before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: repeating-radial-gradient(#B95EBC, #FC6F38, #B95EBC);
-  opacity: 0.7;
   pointer-events: none;
   z-index: -1;
 }
 
-
+/* topbar */
 .topbar {
   display: flex;
-  background-color: #151624;
-  box-shadow: 0px .5vh 2vh #151624;
+  background-color: var(--secondary);
+  box-shadow: 0px .5vh 2vh var(--secondary);
   z-index: 1;
 }
 
@@ -90,50 +89,42 @@
 }
 
 .hamburger {
-  width: 200%;
-  height: auto;
+  margin-right: 5vw;
 }
 
-.gradient {
-  background: rgb(58,99,144);
-  background: linear-gradient(
-    90deg,
-     rgba(58,99,144,1)8%,
-      rgba(90,140,182,1)41%,
-       rgba(27,55,125,1)88% );
+/* footer */
+.footer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Titillium-Light';
+  background-color: var(--secondary);
+  color: var(--primary-light);
+  height: 10vh;
+  font-size: 2vh;
+}
+
+/* slider */
+.swiper {
+  overflow: visible !important;
+}
+
+.swiper-button-next,
+.swiper-button-prev {
+  color: var(--secondary) !important;
+}
+
+.swiper-slide {
+  padding: 20px;
 }
 
 #slider {
-  width: 400px;
-  height:350px;
-  padding: 50px;
+
   display:flex;
   justify-content: center;
   align-items: center;
   display:block;
   font-size: 25px;
-}
-
-.testing {
-  display: flex;
-  font-size: 18px;
-}
-
-
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  background-color: #1b2838;
-}
-
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
 
 .game-card {
@@ -145,8 +136,8 @@ code {
   color: inherit;
   overflow: hidden;
   border-radius: 10px;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   margin: 0 auto; /* Center the card horizontally */
+  box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
 }
 
 .game-card-content {
@@ -166,24 +157,60 @@ code {
   left: 0;
   width: 100%;
   padding: 10px;
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(21,22,36, .8);
   color: white;
   opacity: 0;
   transition: opacity 0.3s ease;
 }
 
-.game-card:hover .game-title {
+.game-card:hover .game-title,
+.game-card:hover .game-price {
   opacity: 1;
 }
 
 .game-price {
   position: absolute;
-  bottom: 5px;
-  right: 10px;
-  background: rgba(0, 0, 0, 0.7);
+  top: -1px;
+  right: -1px;
+  background: rgba(21,22,36, .8);
   color: white;
+  opacity: 0;
   padding: 5px 10px;
-  border-radius: 5px;
+  border-radius: 3px;
+}
+
+/* game page */
+.gamepage-text-box {
+  padding: 10px;
+  background: rgba(21,22,36, .8);
+  border-radius: 10px;
+  color: var(--primary-light);
+  border: 2px solid rgba(242, 179, 7);
+  max-width: 500px;
+}
+
+.gamepage-name {
+  font-family: 'Titillium-Bold';
+}
+
+.gamepage-image {
+  max-width: 500px;
+  min-width: 350px;
+}
+
+.gamepage-image img {
+  box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
+  border-radius: 10px;
+  border: 2px solid rgba(242, 179, 7);
+
+}
+
+.gamepage-cart {
+  background: var(--primary);
+}
+
+.gamepage-container {
+  align-items: start;
 }
 
 .library-game-title {
@@ -219,6 +246,33 @@ code {
   font-size: .4rem;
 }
 
+/* line of uncertainty */
+.gradient {
+  background: rgb(58,99,144);
+  background: linear-gradient(
+    90deg,
+     rgba(58,99,144,1)8%,
+      rgba(90,140,182,1)41%,
+       rgba(27,55,125,1)88% );
+}
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #1b2838;
+}
+
+.testing {
+  display: flex;
+  font-size: 18px;
+}
+
+
+
 
 @media screen and (max-width: 200px) {
   .search-title {
@@ -243,6 +297,9 @@ code {
 }
 
 @media screen and (max-width: 360px) {
+  .primary-header h1 {
+    display: none;
+  }
   .search-cart-button {
     font-size: .25rem;
     padding: .5rem;
@@ -250,6 +307,28 @@ code {
   }
   .search-price {
     font-size: .5rem;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .gamepage-image {
+    min-width: 100px;
+  }
+}
+
+@media (max-width: 768px) {
+  .primary-header h1 {
+    display: none;
+  }
+  .topbar {
+    justify-content: space-evenly
+  }
+}
+
+@media (min-width: 1024px) {
+  .gamepage-container {
+    display: flex;
+    justify-content: center;
   }
 }
 
