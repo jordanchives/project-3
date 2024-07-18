@@ -26,22 +26,17 @@
   src: url('./assets/fonts/Titillium/TitilliumWeb-Light.ttf') format('opentype');
 }
 
-.form-text {
-  color: var(--primary-light);
-  font-family: 'Righteous';
-  font-size: 2rem;
-}
-
-.form-container {
-  box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
-}
-
-.reg-error {
-  text-align: center;
-}
-
 html, body {
   height: 100%;
+}
+
+.error-text {
+  font-family: 'Righteous';
+}
+
+.error-button {
+  font-family: 'Titillium-Bold';
+  color: white;
 }
 
 /* background */
@@ -144,6 +139,20 @@ html, body {
   border: none !important;
 }
 
+/* login / register forms */
+.form-text {
+  color: var(--primary-light);
+  font-family: 'Righteous';
+  font-size: 2rem;
+}
+
+.form-container {
+  box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
+}
+
+.reg-error {
+  text-align: center;
+}
 
 /* footer */
 .footer {
@@ -234,29 +243,6 @@ html, body {
   font-family: 'Titillium-Bold';
 }
 
-.checkout-button {
-  background: var(--primary);
-}
-
-.checkout-container {
-  align-items: end;
-  text-align: end;
-}
-
-.checkout-totals {
-  padding: 10px;
-  background: rgba(21,22,36, .8);
-  border-radius: 10px;
-  color: var(--primary-light);
-  border: 2px solid rgba(242, 179, 7);
-  max-width: 500px;
-}
-
-.checkout-value {
-  font-family: 'Titillium-Bold';
-  font-size: 1.25rem;
-}
-
 .gamepage-go-cart {
   background: var(--primary);
 }
@@ -284,7 +270,29 @@ html, body {
   align-items: start;
 }
 
+/* checkout */
+.checkout-button {
+  background: var(--primary);
+}
 
+.checkout-container {
+  align-items: end;
+  text-align: end;
+}
+
+.checkout-totals {
+  padding: 10px;
+  background: rgba(21,22,36, .8);
+  border-radius: 10px;
+  color: var(--primary-light);
+  border: 2px solid rgba(242, 179, 7);
+  max-width: 500px;
+}
+
+.checkout-value {
+  font-family: 'Titillium-Bold';
+  font-size: 1.25rem;
+}
 
 /* library */
 .library-game-title {

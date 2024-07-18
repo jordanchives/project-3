@@ -1,28 +1,23 @@
-
-
-
 function Error() {
   return (
     <div>
-      
-      <div class="grid h-screen place-content-center bg-white px-4 dark:bg-gray-900">
-  <div class="text-center">
-    <h1 class="text-9xl font-black text-gray-200 dark:text-gray-700">404</h1>
+      <div class="grid place-content-center py-4">
+        <div class="text-center">
+          <h1 class="error-text text-9xl text-gray-200 dark:text-gray-700">404</h1>
 
-    <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
-      Uh-oh!
-    </p>
+          <p class="text-2xl font-bold tracking-tight text-gray-900 sm:text-4xl dark:text-white">
+            Uh-oh!
+          </p>
 
-    <p class="mt-4 text-gray-500 dark:text-gray-400">We can't find that page.</p>
+          <p class="mb-4 text-[#151624]">
+            We can't find that page.
+          </p>
 
-    <a
-      href="/"
-      class="mt-6 inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring"
-    >
-      Go Back Home
-    </a>
-  </div>
-</div>
+          <a href="/" class="error-button bg-gradient-to-r from-[#F2A007] to-[#f0560f] rounded-full text-white py-2 px-4 hover:bg-[#f0560f] hover:to-[#F2A007] transtion ease-in duration-200">
+            Go Back Home
+          </a>
+        </div>
+      </div>
     </div>
   );
 }
