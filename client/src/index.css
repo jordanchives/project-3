@@ -3,8 +3,106 @@
 @tailwind utilities; 
 @import 'flowbite';
 
+
 * {
-  font-family: "Duru sans",sans-serif;
+}
+
+:root {
+  --primary: #F2A007;
+  --primary-light: #D6C9AE;
+  --secondary: #151624;
+  --accent-color: #ffcc00;
+  --background-color: #ffffff;
+  --text-color: #000000;
+}
+
+@font-face {
+  font-family: 'Righteous';
+  src: url('./assets/fonts/Righteous/Righteous-Regular.ttf') format('truetype');
+}
+
+
+@font-face {
+  font-family: 'Titillium-Bold';
+  src: url('./assets/fonts/Titillium/TitilliumWeb-Bold.ttf') format('opentype');
+}
+
+@font-face {
+  font-family: 'Titillium-Black';
+  src: url('./assets/fonts/Titillium/TitilliumWeb-Black.ttf') format('opentype');
+}
+
+/* .main-content-container {
+
+
+} */
+
+.main-content-container {
+  position: relative;
+  z-index: 0;
+
+}
+
+.main-content-container::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('./assets/images/colors.png');
+  filter: blur(1px); /* Adjust the opacity as needed */
+  pointer-events: none; /* Ensure the pseudo-element doesn't interfere with interactions */
+
+}
+
+.main-content-gradient {
+  position: relative;
+  z-index: 0;
+}
+
+.main-content-gradient::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: repeating-radial-gradient(#B95EBC, #FC6F38, #B95EBC);
+  opacity: 0.7;
+  pointer-events: none;
+  z-index: -1;
+}
+
+
+.topbar {
+  display: flex;
+  background-color: #151624;
+  box-shadow: 0px .5vh 2vh #151624;
+  z-index: 1;
+}
+
+.primary-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  font-family: 'Righteous';
+}
+
+.primary-header img {
+  height: 12vh;
+  width: auto;
+}
+
+.primary-header h1 {
+  color: #D6C9AE;
+  font-size: 10vh;
+  padding-left: 2%
+}
+
+.hamburger {
+  width: 200%;
+  height: auto;
 }
 
 .gradient {
@@ -25,13 +123,11 @@
   align-items: center;
   display:block;
   font-size: 25px;
-  
- 
 }
+
 .testing {
   display: flex;
   font-size: 18px;
-
 }
 
 

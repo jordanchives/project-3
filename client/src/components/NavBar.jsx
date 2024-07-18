@@ -53,12 +53,15 @@ function NavBar() {
 
   return (
     <div className="flex flex-col lg:flex-row items-center bg-[#171a21]">
-      {/* Main Container */}
-      <div className="flex items-center justify-between w-full lg:px-6 lg:py-6 px-2 py-2">
-        {/* Left: Logo */}
-        <div className="flex items-center">
-          <a href="/">
-            <img src={logo2} width="176" height="44" alt="Link to HomePage" />
+
+      {/* Top Bar */}
+      <div className="topbar flex items-center justify-between w-full lg:px-6 lg:py-4 px-2 py-2">
+        
+        {/* Header */}
+        <div>
+          <a href="/" className="primary-header">
+            <img src={logo2} alt="Link to HomePage" />
+            <h1>checkrd</h1>
           </a>
         </div>
 
@@ -72,16 +75,9 @@ function NavBar() {
           aria-expanded={open}
           aria-label="Toggle navigation menu"
         >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
+          <svg className="hamburger w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 17 14">
             <path
-              stroke="currentColor"
+              stroke="#D6C9AE"
               strokeLinecap="round"
               strokeLinejoin="round"
               strokeWidth="2"
