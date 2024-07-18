@@ -1,12 +1,3 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities; 
-@import 'flowbite';
-
-
-* {
-}
-
 :root {
   --primary: #F2A007;
   --primary-light: #D6C9AE;
@@ -34,6 +25,10 @@
 @font-face {
   font-family: 'Titillium-Light';
   src: url('./assets/fonts/Titillium/TitilliumWeb-Light.ttf') format('opentype');
+}
+
+html, body {
+  height: 100%;
 }
 
 /* background */
@@ -91,10 +86,49 @@
   transition: .5s ease;
 }
 
+/* sidebar */
 .hamburger {
   margin-right: 5vw;
   transition: .5s ease;
 }
+
+.sidebar {
+  font-family: 'Titillium-Light';
+  background-color: var(--primary);
+  box-shadow: 0 0 25px rgba(21,22,36,.55), 0 0 25px rgba(21,22,36,.55), 0 0 25px rgba(21,22,36,.55);
+  z-index: 2;
+}
+
+.logout-button {
+  width: 100%;
+}
+
+.sidebar-list a:hover,
+.logout-button:hover {
+  background: rgba(21,22,36,.65);
+  color: var(--primary-light);
+}
+
+.logout-button:hover .sidebar-list-button {
+  color: var(--primary-light);
+}
+
+#simple-search {
+  background-color: var(--primary-light);
+  outline: none !important;
+  border: (22px, solid, #151624);
+}
+
+#simple-search:focus {
+  outline: none !important;
+  border: none !important;
+}
+
+#simple-search:focus-visible {
+  outline: none !important;
+  border: none !important;
+}
+
 
 /* footer */
 .footer {
@@ -108,6 +142,7 @@
   font-size: 2vh;
 }
 
+/* slider */
 .swiper-button-next,
 .swiper-button-prev {
   color: var(--secondary) !important;
@@ -117,8 +152,7 @@
   padding: 20px;
 }
 
-
-
+/* home games */
 .game-card {
   position: relative;
   display: block;
@@ -387,11 +421,14 @@ body {
 
 .active-sidebar{
   width: 85%;
- 
 }
+
 .delay {
-  
   width: 100%;
   transition-duration: .08s;
   transition-delay: .08s;
 }
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities; 
