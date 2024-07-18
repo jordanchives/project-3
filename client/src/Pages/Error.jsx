@@ -9,11 +9,11 @@ function Error() {
             Uh-oh!
           </p>
 
-          <p class="mt-4 text-gray-500 dark:text-gray-400">
+          <p class="mb-4 text-[#151624]">
             We can't find that page.
           </p>
 
-          <a href="/" class="mt-6 inline-block rounded bg-indigo-600 px-5 py-3 text-sm font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring">
+          <a href="/" class="error-button bg-gradient-to-r from-[#F2A007] to-[#f0560f] rounded-full text-white py-2 px-4 hover:bg-[#f0560f] hover:to-[#F2A007] transtion ease-in duration-200">
             Go Back Home
           </a>
         </div>

@@ -30,6 +30,15 @@ html, body {
   height: 100%;
 }
 
+.error-text {
+  font-family: 'Righteous';
+}
+
+.error-button {
+  font-family: 'Titillium-Bold';
+  color: white;
+}
+
 /* background */
 .main-content-container {
   position: relative;
