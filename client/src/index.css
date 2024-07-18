@@ -2,6 +2,7 @@
   --primary: #F2A007;
   --primary-light: #D6C9AE;
   --secondary: #151624;
+  --test: #f0560f;
 }
 
 @font-face {
@@ -23,6 +24,20 @@
 @font-face {
   font-family: 'Titillium-Light';
   src: url('./assets/fonts/Titillium/TitilliumWeb-Light.ttf') format('opentype');
+}
+
+.form-text {
+  color: var(--primary-light);
+  font-family: 'Righteous';
+  font-size: 2rem;
+}
+
+.form-container {
+  box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
+}
+
+.reg-error {
+  text-align: center;
 }
 
 html, body {
