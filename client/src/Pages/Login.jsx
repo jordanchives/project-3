@@ -29,7 +29,7 @@ function Login() {
   };
 
   return (
-    <div className="flex flex-col items-center h-screen m-8">
+    <div className="flex flex-col items-center m-8">
       <div className="w-md bg-[#151624] rounded-xl shadow-md py-8 px-8">
         <h2 className="form-text mb-6 text-center">
           login
