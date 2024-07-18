@@ -33,7 +33,6 @@ function App() {
           <NavBar />
           <main className="main-content-container flex-grow">
             <div className="main-content-gradient p-5">
-              <div className="main-content-separator">
               <GameProvider>
                 <Routes>
                   <Route index element={<Home />} />
@@ -48,7 +47,6 @@ function App() {
                   <Route path="*" element={<Error />} />
                 </Routes>
               </GameProvider>
-              </div>
             </div>
           </main>
           <Footer />
