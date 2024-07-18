@@ -15,6 +15,8 @@ class AuthService {
       const decoded = jwtDecode(token);
       if (decoded.exp < Date.now() / 1000) {
         localStorage.removeItem("id_token");
+        localStorage.removeItem("user_id");
+        localStorage.removeItem("cart");
         return true;
       } else return false;
     } catch (err) {
@@ -34,6 +36,7 @@ class AuthService {
   logout() {
     localStorage.removeItem("id_token");
     localStorage.removeItem("user_id");
+    localStorage.removeItem("cart");
     window.location.reload();
   }
 }
