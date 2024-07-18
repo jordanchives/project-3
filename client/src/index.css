@@ -2,8 +2,6 @@
   --primary: #F2A007;
   --primary-light: #D6C9AE;
   --secondary: #151624;
-  --accent-color: #ffcc00;
-  --text-color: #000000;
 }
 
 @font-face {
@@ -94,9 +92,11 @@ html, body {
 
 .sidebar {
   font-family: 'Titillium-Light';
-  background-color: var(--primary);
-  box-shadow: 0 0 25px rgba(21,22,36,.55), 0 0 25px rgba(21,22,36,.55), 0 0 25px rgba(21,22,36,.55);
-  z-index: 2;
+  background-color: blue !important;
+}
+
+.sidebar-open {
+  box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
 }
 
 .logout-button {
@@ -219,6 +219,33 @@ html, body {
   font-family: 'Titillium-Bold';
 }
 
+.checkout-button {
+  background: var(--primary);
+}
+
+.checkout-container {
+  align-items: end;
+  text-align: end;
+}
+
+.checkout-totals {
+  padding: 10px;
+  background: rgba(21,22,36, .8);
+  border-radius: 10px;
+  color: var(--primary-light);
+  border: 2px solid rgba(242, 179, 7);
+  max-width: 500px;
+}
+
+.checkout-value {
+  font-family: 'Titillium-Bold';
+  font-size: 1.25rem;
+}
+
+.gamepage-go-cart {
+  background: var(--primary);
+}
+
 .summary {
   text-align: justify;
 }
@@ -257,6 +284,15 @@ html, body {
 }
 
 /* cart / search list */
+.cart-header-container img {
+  height: 4rem;
+}
+
+.cart-header-container {
+  display: flex;
+  justify-content: center;
+}
+
 .list {
   padding: 12px;
 }
@@ -309,7 +345,7 @@ html, body {
 .search-price {
   padding-bottom: 10px;
   font-family: 'Titillium';
-  font-size: 1.25rem;
+  font-size: 1.5rem;
 }
 
 .search-genres,
@@ -393,7 +429,7 @@ body {
     display: none !important;
   }
   .search-price {
-    font-size: 1.5rem;
+    font-size: 1.75rem;
     margin-bottom: .5rem;
   }
   .search-cart-button {
@@ -409,6 +445,10 @@ body {
   }
   .topbar {
     justify-content: space-evenly
+  }
+  .gamepage-container {
+    display: flex;
+    align-items: center;
   }
 }
 

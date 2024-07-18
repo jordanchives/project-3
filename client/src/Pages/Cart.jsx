@@ -5,6 +5,7 @@ import { REMOVE_FROM_CART, CLEAR_CART } from '../utils/actions';
 import { TRANSACTION } from '../utils/mutations'; 
 import { useGameContext } from "../utils/GlobalState";
 import auth from "../utils/auth";
+import cart from '../assets/images/cart.svg';
 
 
 function Cart () {
@@ -92,37 +93,45 @@ function Cart () {
 
     return (
       <div>
-        <h1 className="text-2xl font-bold mb-2 text-white">Cart</h1>
-        <ul>
+        <div className='cart-header-container mt-5 mb-2'>
+          <img src={cart} alt="shopping cart icon"></img>
+        </div>
+        <ul className='list'>
           {games.map((game) => (
-            <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center justify-between shadow w-full md:flex-row hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-              <div className="search-img-container flex flex-col">
-                <img src={game.cover} alt={game.name} className="search-img object-cover w-auto max-h-28" />
-              </div>
-              <div className="search-text-container flex flex-col px-2 leading-normal">
-                <h5 className="search-title mb-2 font-bold tracking-tight text-white">{game.name}</h5>
-                <p className="search-genres font-normal  text-white">{game.genres.join(', ')}</p>
+            <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center w-full md:flex-row">
+              <div className='list-container'>
+                <div className="search-img-container flex flex-col">
+                  <img src={game.cover} alt={game.name} className="search-img object-cover" />
+                </div>
+                <div className="search-text-container flex flex-col leading-normal">
+                  <h5 className="search-title mb-2 tracking-tight">{game.name}</h5>
+                  <p className="search-genres">{game.genres.join(', ')}</p>
+                </div>
               </div>
 
               <div className="search-cart-container flex flex-col items-center pr-2">
-                <span className="search-price text-3xl font-bold  text-white">{game.price}</span>
+                <span className="search-price">{game.price}</span>
               
-                <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled`} onClick={(event) => handleRemoveFromCart(event, game)}>
+                <button className={`search-cart-button rounded disabled`} onClick={(event) => handleRemoveFromCart(event, game)}>
                     Remove
                 </button>
               </div>
             </a>
           ))}
         </ul>
-        <div>
-            <div>
-                <h3 className="text-white">Subtotal: ${subTotal.toFixed(2)}</h3>
-                <h3 className="text-white">Tax: ${tax.toFixed(2)}</h3>
-                <h3 className="text-white">Total: ${total.toFixed(2)}</h3>
+        <div className='checkout-container flex flex-col px-4'>
+          <div className='checkout-totals p-4'>
+            <div className='pb-2'>
+                <h3 className="checkout-value">Subtotal: ${subTotal.toFixed(2)}</h3>
+                <h3 className="checkout-value">Tax: ${tax.toFixed(2)}</h3>
+                <h3 className="checkout-value">Total: ${total.toFixed(2)}</h3>
             </div>
-            <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled`} onClick={handleTransaction}>
+            <div>
+            <button className={`checkout-button py-2 px-4 font-bold text-white rounded disabled`} onClick={handleTransaction}>
                 Checkout
             </button>
+            </div>
+            </div>
         </div>
      </div>
     );

@@ -88,10 +88,10 @@ function NavBar() {
       <div
         ref={sidebarRef}
         className={`sidebar fixed top-0 right-0 h-full transition-transform duration-300 ease-in-out ${
-          open ? "translate-x-0" : "translate-x-full"
+          open ? "translate-x-0" : "translate-x-full sidebar-open"
         } z-50`}
       >
-        <Sidebar aria-label="Sidebar">
+        <Sidebar className="" aria-label="Sidebar">
           <div className="flex flex-col p-4">
             {/* SearchBar for slide-out menu */}
             <form

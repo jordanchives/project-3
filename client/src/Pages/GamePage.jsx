@@ -109,7 +109,7 @@ function GamePage() {
               <div>
                 <button
                   onClick={() => navigate("/cart")}
-                  className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-3"
+                  className="gamepage-go-cart text-white font-bold py-2 px-4 rounded mt-3"
                 >
                   Go to Cart
                 </button>
