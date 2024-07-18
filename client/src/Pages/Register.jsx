@@ -9,6 +9,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  if(auth.loggedIn()) {
+    window.location.assign("/");
+  }
+
   const [visible, setVisible] = useState(true);
 
   const handleRegister = async (e) => {
@@ -27,7 +31,7 @@ const Register = () => {
   };
   return (
     <div className="flex flex-col items-center justify-center h-screen">
-      <div className="w-full max-w-md bg-[#222] rounded-xl shadow-md py8 px-8">
+      <div className="w-full max-w-md bg-[#222] rounded-xl shadow-md py-8 px-8">
         <h2 className="text-[25px] font-bold text-white mb-6 text-center">
           SignUp
         </h2>

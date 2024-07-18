@@ -8,6 +8,9 @@ function Login() {
   const [login, { error }] = useMutation(LOGIN_USER);
   const [visible, setVisible] = useState(true);
 
+  if(auth.loggedIn()) {
+    window.location.assign("/");
+  }
   const handleFormSubmit = async (e) => {
     e.preventDefault();
     try {

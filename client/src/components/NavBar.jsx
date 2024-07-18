@@ -3,7 +3,7 @@ import logo2 from "../assets/images/logo2.svg";
 import burger from "../assets/images/burger.svg";
 import { useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
-import { Button, Sidebar } from 'flowbite-react';
+import { Button, Sidebar } from "flowbite-react";
 
 function NavBar() {
   const isLoggedIn = auth.loggedIn(); // Check if the user is logged in
@@ -21,6 +21,7 @@ function NavBar() {
     const form = event.target;
     const query = new URLSearchParams(new FormData(form)).get("search");
     navigate(`/search?term=${query}`);
+    setOpen(false);
   };
 
   const handleClickOutside = (event) => {
@@ -54,10 +55,8 @@ function NavBar() {
 
   return (
     <div className="flex flex-col lg:flex-row items-center bg-[#171a21]">
-
       {/* Top Bar */}
       <div className="topbar flex items-center justify-between w-full lg:px-6 lg:py-4 px-2 py-2">
-        
         {/* Header */}
         <div>
           <a href="/" className="primary-header">
@@ -76,14 +75,21 @@ function NavBar() {
           aria-expanded={open}
           aria-label="Toggle navigation menu"
         >
-        <img className="" src={burger} alt="Hamburger menu icon" aria-hidden="true" />
-      </button>
+          <img
+            className=""
+            src={burger}
+            alt="Hamburger menu icon"
+            aria-hidden="true"
+          />
+        </button>
       </div>
 
       {/* Slide-Out Menu */}
       <div
         ref={sidebarRef}
-        className={`fixed top-0 right-0 h-full bg-[#171a21] transition-transform duration-300 ease-in-out ${open ? 'translate-x-0' : 'translate-x-full'} z-50`}
+        className={`fixed top-0 right-0 h-full bg-[#171a21] transition-transform duration-300 ease-in-out ${
+          open ? "translate-x-0" : "translate-x-full"
+        } z-50`}
       >
         <Sidebar aria-label="Sidebar">
           <div className="flex flex-col p-4">
@@ -133,22 +139,7 @@ function NavBar() {
                   Home
                 </a>
               </li>
-              <li>
-                <a
-                  href="/cart"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  Cart
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/library"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
-                >
-                  Library
-                </a>
-              </li>
+
               {!isLoggedIn ? (
                 <>
                   <li>
@@ -169,14 +160,32 @@ function NavBar() {
                   </li>
                 </>
               ) : (
-                <li>
-                  <button
-                    onClick={handleLogout}
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white w-full text-left"
-                  >
-                    Logout
-                  </button>
-                </li>
+                <>
+                  <li>
+                    <a
+                      href="/cart"
+                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    >
+                      Cart
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="/library"
+                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white"
+                    >
+                      Library
+                    </a>
+                  </li>
+                  <li>
+                    <button
+                      onClick={handleLogout}
+                      className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 dark:text-gray-400 dark:hover:bg-gray-700 dark:hover:text-white w-full text-left"
+                    >
+                      Logout
+                    </button>
+                  </li>
+                </>
               )}
             </ul>
           </div>

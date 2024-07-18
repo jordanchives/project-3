@@ -37,7 +37,7 @@ function App() {
                 <Routes>
                   <Route index element={<Home />} />
                   <Route path="/login" element={<Login />} />
-                  <Route path="/home" element={<Home />} />
+                  <Route path="/" element={<Home />} />
                   <Route path="/register" element={<Register />} />
                   <Route path="/test" element={<Test />} />
                   <Route path="/games/:gameID" element={<GamePage />} />

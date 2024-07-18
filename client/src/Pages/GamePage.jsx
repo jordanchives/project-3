@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 import { QUERY_GAME_ID, QUERY_USER } from "../utils/queries";
 import { ADD_TO_CART } from "../utils/actions";
 import { useGameContext } from "../utils/GlobalState";
+import auth from "../utils/auth";
 
 function GamePage() {
   const [state, dispatch] = useGameContext();
   const { gameID } = useParams();
+  const navigate = useNavigate();
   const userID = localStorage.getItem("user_id");
   const [game, setGame] = useState(null);
   const [isInCart, setIsInCart] = useState(false); // State to check if the game is in the cart
@@ -29,6 +31,7 @@ function GamePage() {
     error: userError,
   } = useQuery(QUERY_USER, {
     variables: { id: userID },
+    skip: !auth.loggedIn(),
   });
 
   useEffect(() => {
@@ -54,10 +57,14 @@ function GamePage() {
   }, [userData, userError, gameID, state.cart]);
 
   const handleAddToCart = () => {
-    dispatch({ type: ADD_TO_CART, game });
+    if (!auth.loggedIn()) {
+      navigate("/login");
+    } else {
+      dispatch({ type: ADD_TO_CART, game });
+    }
   };
 
-  if (loadingGame || loadingUser) {
+  if (loadingGame || (auth.loggedIn() && loadingUser)) {
     return <div>Loading...</div>;
   }
 
@@ -77,32 +84,37 @@ function GamePage() {
           <img
             src={game.cover}
             alt={game.name}
-            className=" w-full h-full object-cover"
+            className="w-full h-full object-cover"
           />
         </div>
         {/* Description Container */}
         <div className="gamepage-text-box md:w-1/2 flex flex-col">
           <div>
             <h2 className="gamepage-name text-2xl mb-2">{game.name.toUpperCase()}</h2>
-            <p>{game.genres.join(', ')}</p>
+            <p>{game.genres.join(", ")}</p>
             <p className="text-lg mb-4">${game.price}</p>
             <p className="summary">{game.summary}</p>
           </div>
           <div className="pt-5">
             <button
               className={`gamepage-cart text-white font-bold py-2 px-4 rounded ${
-                isInCart ? "opacity-50" : 
-                isInLibrary ? "opacity-50" : ""
+                isInCart || isInLibrary ? "opacity-50" : ""
               }`}
               onClick={handleAddToCart}
               disabled={isInCart || isInLibrary}
             >
-              {isInCart
-                ? "In Cart"
-                : isInLibrary
-                ? "In Library"
-                : "Add to Cart"}
+              {isInCart ? "In Cart" : isInLibrary ? "In Library" : "Add to Cart"}
             </button>
+            {isInCart && (
+              <div>
+                <button
+                  onClick={() => navigate("/cart")}
+                  className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-3"
+                >
+                  Go to Cart
+                </button>
+              </div>
+            )}
           </div>
         </div>
       </div>
