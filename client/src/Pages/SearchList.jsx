@@ -65,9 +65,9 @@ function SearchList() {
   return (
     <ul className='list'>
       {games.map((game) => (
-        <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center shadow w-full md:flex-row">
+        <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center w-full md:flex-row">
           <div className='list-container'>
-            <div className="search-img-container flex">
+            <div className="search-img-container flex flex-col">
                 <img className="search-img object-cover" src={game.cover} alt=""></img>
             </div>
             <div className="search-text-container flex flex-col leading-normal">
@@ -77,7 +77,7 @@ function SearchList() {
           </div>
 
           <div className="search-cart-container flex flex-col items-center">
-            <span className="search-price text-xs font-bold">{game.price}</span>
+            <span className="search-price">{game.price}</span>
               
             <button className={`search-cart-button rounded disabled ${
               game.active ? "opacity-35" : ""
