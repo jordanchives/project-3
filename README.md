@@ -31,6 +31,9 @@ This app was created by Jordan, Conner, Jeremy as project 3 for our Web Design B
 [Deployed Application](https://project-3-11g7.onrender.com/)
 
 
+![Screen Shot](<Screenshot 2024-07-18 at 17.24.20.png>)()
+
+
 
 
 ## Contact
