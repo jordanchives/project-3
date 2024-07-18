@@ -9,6 +9,10 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [addUser, { error }] = useMutation(ADD_USER);
 
+  if(auth.loggedIn()) {
+    window.location.assign("/");
+  }
+
   const [visible, setVisible] = useState(true);
 
   const handleRegister = async (e) => {

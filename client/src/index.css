@@ -229,21 +229,21 @@ html {
 }
 
 .search-title {
-  font-size: .6rem;
+  font-size: 1.0rem;
   transition: .5s ease;
 }
 
 .search-genres {
-  font-size: .4rem;
+  font-size: .7rem;
   transition: .5s ease;
 }
 
 .search-price {
-  font-size: .6rem;
+  font-size: 1.6rem;
 }
 
 .search-cart-button {
-  font-size: .4rem;
+  font-size: .6rem;
 }
 
 /* line of uncertainty */

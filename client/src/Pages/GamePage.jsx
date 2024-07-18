@@ -11,7 +11,8 @@ function GamePage() {
   const userID = localStorage.getItem("user_id");
   const [game, setGame] = useState(null);
   const [isInCart, setIsInCart] = useState(false); // State to check if the game is in the cart
-  const [isInLibrary, setIsInLibrary] = useState(false); // State to check if the game is in the library
+  const [isInLibrary, setIsInLibrary] = useState(false);
+   // State to check if the game is in the library
 
   // Fetch game data
   const {
@@ -68,7 +69,9 @@ function GamePage() {
   if (!game) {
     return <div>404 Game not found</div>;
   }
-
+function goToCart(){
+  window.location.assign("/cart");
+}
   return (
     <main className="p-4">
       <div className="gamepage-container flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
@@ -103,6 +106,12 @@ function GamePage() {
                 ? "In Library"
                 : "Add to Cart"}
             </button>
+            {isInCart ? (
+              <div><button onClick={goToCart} className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-3">
+                Go to Cart
+                </button></div>
+            ): ""
+            }
           </div>
         </div>
       </div>
