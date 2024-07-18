@@ -27,6 +27,11 @@
 }
 
 @font-face {
+  font-family: 'Titillium';
+  src: url('./assets/fonts/Titillium/TitilliumWeb-Regular.ttf') format('opentype');
+}
+
+@font-face {
   font-family: 'Titillium-Light';
   src: url('./assets/fonts/Titillium/TitilliumWeb-Light.ttf') format('opentype');
 }
@@ -68,6 +73,7 @@ html {
   background-color: var(--secondary);
   box-shadow: 0px .5vh 2vh var(--secondary);
   z-index: 1;
+  transition: .5s ease;
 }
 
 .primary-header {
@@ -80,16 +86,19 @@ html {
 .primary-header img {
   height: 12vh;
   width: auto;
+  transition: .5s ease;
 }
 
 .primary-header h1 {
   color: #D6C9AE;
   font-size: 10vh;
-  padding-left: 2%
+  padding-left: 2%;
+  transition: .5s ease;
 }
 
 .hamburger {
   margin-right: 5vw;
+  transition: .5s ease;
 }
 
 /* footer */
@@ -193,6 +202,10 @@ html {
   font-family: 'Titillium-Bold';
 }
 
+.summary {
+  text-align: justify;
+}
+
 .gamepage-image {
   max-width: 500px;
   min-width: 350px;
@@ -202,7 +215,6 @@ html {
   box-shadow: 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25), 0 0 25px rgba(21,22,36,.25);
   border-radius: 10px;
   border: 2px solid rgba(242, 179, 7);
-
 }
 
 .gamepage-cart {
@@ -213,6 +225,9 @@ html {
   align-items: start;
 }
 
+
+
+/* library */
 .library-game-title {
   position: absolute;
   bottom: 0;
@@ -224,37 +239,82 @@ html {
   transition: opacity 0.3s ease;
 }
 
+/* cart / search list */
+.search-a {
+  background: 
+    linear-gradient(217deg, rgba(242, 179, 7, 0.514), rgba(255,0,0,0) 85%),
+    linear-gradient(127deg, rgba(21, 22, 36, 0.315), rgba(0,255,0,0) 85%),
+    linear-gradient(177deg, rgba(252, 111, 56, 0.363), rgba(255,0,0,0) 85%),
+    linear-gradient(270deg, rgba(0,0,255,.5), rgba(0,0,255,0) 55%);
+  justify-content: space-between;
+}
+
+.search-a:hover {
+  background-color: rgba(21,22,36, .65);
+}
+
+.search-a:hover .search-title,
+.search-a:hover .search-genres,
+.search-a:hover .search-price {
+  color: var(--primary-light);
+}
+
+.list-container {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.search-img {
+  max-width: 150px;
+}
+
 .search-text-container {
-  width: 80% !important;
+  width: 70% !important;
+  padding-left: 10px;
 }
 
 .search-title {
-  font-size: 1.0rem;
-  transition: .5s ease;
+  font-family: 'Titillium-Bold';
+  font-size: 1.25rem;
+  transition: .3s ease;
 }
 
 .search-genres {
-  font-size: .7rem;
-  transition: .5s ease;
+  font-family: 'Titillium';
+  font-size: 1rem;
 }
 
 .search-price {
-  font-size: 1.6rem;
+  padding-bottom: 10px;
+  font-family: 'Titillium';
+  font-size: 1.25rem;
+}
+
+.search-genres,
+.search-price,
+.search-title {
+  color: var(--primary-light);
+  transition: .5s ease;
+}
+
+.search-cart-container {
+  padding-right: 10px;
 }
 
 .search-cart-button {
-  font-size: .6rem;
+  font-family: 'Titillium-Bold';
+  background: var(--primary-light);
+  color: var(--secondary);
+  font-size: .8rem;
+  padding: 8px;
+}
+
+.search-cart-button:hover {
+  background: var(--primary);
 }
 
 /* line of uncertainty */
-.gradient {
-  background: rgb(58,99,144);
-  background: linear-gradient(
-    90deg,
-     rgba(58,99,144,1)8%,
-      rgba(90,140,182,1)41%,
-       rgba(27,55,125,1)88% );
-}
 
 body {
   margin: 0;
@@ -265,12 +325,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #1b2838;
 }
-
-.testing {
-  display: flex;
-  font-size: 18px;
-}
-
 
 
 
@@ -288,7 +342,6 @@ body {
 
 @media screen and (max-width: 270px) {
   .search-genres {
-    display: none !important;
     width: 140% !important;
   }
   .search-title {
@@ -300,19 +353,32 @@ body {
   .primary-header h1 {
     display: none;
   }
-  .search-cart-button {
-    font-size: .25rem;
-    padding: .5rem;
-    width: 120% !important;
-  }
-  .search-price {
-    font-size: .5rem;
-  }
 }
 
 @media screen and (max-width: 480px) {
   .gamepage-image {
     min-width: 100px;
+  }
+}
+
+@media screen and (max-width: 550px) {
+  .search-a {
+    justify-content: space-around;
+  }
+  .search-title {
+    display: none;
+  }
+  .search-genres {
+    display: none !important;
+  }
+  .search-price {
+    font-size: 1.5rem;
+    margin-bottom: .5rem;
+  }
+  .search-cart-button {
+    font-size: 1rem;
+    padding: .35rem;
+    width: 120% !important;
   }
 }
 

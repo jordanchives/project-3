@@ -93,7 +93,7 @@ function GamePage() {
             <h2 className="gamepage-name text-2xl mb-2">{game.name.toUpperCase()}</h2>
             <p>{game.genres.join(", ")}</p>
             <p className="text-lg mb-4">${game.price}</p>
-            <p>{game.summary}</p>
+            <p className="summary">{game.summary}</p>
           </div>
           <div className="pt-5">
             <button
