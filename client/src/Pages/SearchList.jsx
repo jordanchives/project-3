@@ -56,20 +56,22 @@ function SearchList() {
   return (
     <ul>
       {games.map((game) => (
-        <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center justify-between shadow w-full md:flex-row hover:bg-gray-700 dark:bg-gray-800 dark:hover:bg-gray-700">
-          <div className="search-img-container flex flex-col">
-              <img className="search-img object-cover w-auto max-h-28 " src={game.cover} alt=""></img>
+        <a key={game._id} href={`/games/${game._id}`} className="search-a mb-3 flex flex-row items-center shadow w-full md:flex-row">
+          <div className='list-container'>
+          <div className="search-img-container flex">
+              <img className="search-img object-cover" src={game.cover} alt=""></img>
           </div>
-          <div className="search-text-container flex flex-col px-2 leading-normal">
-              <h5 className="search-title mb-2 font-bold tracking-tight text-gray-900 dark:text-white">{game.name}</h5>
-              <p className="search-genres font-normal text-gray-900 dark:text-gray-400">{game.genres.join(', ')}</p>
+          <div className="search-text-container flex flex-col leading-normal">
+              <h5 className="search-title mb-2 tracking-tight">{game.name}</h5>
+              <p className="search-genres">{game.genres.slice(0, 3).join(', ')}</p>
+          </div>
           </div>
 
-          <div className="search-cart-container flex flex-col items-center pr-2">
-              <span className="search-price text-xs font-bold text-gray-900 dark:text-white">{game.price}</span>
+          <div className="search-cart-container flex flex-col items-center">
+              <span className="search-price text-xs font-bold">{game.price}</span>
               
-            <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled ${
-              game.active ? "opacity-50" : "hover:bg-blue-700"
+            <button className={`search-cart-button rounded disabled ${
+              game.active ? "opacity-35" : ""
             }`} onClick={(event) => handleAddToCart(event, game)}
             disabled={game.active}>
               Add to Cart
