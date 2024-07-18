@@ -61,12 +61,12 @@ function SearchList() {
               <img className="search-img object-cover w-auto max-h-28 " src={game.cover} alt=""></img>
           </div>
           <div className="search-text-container flex flex-col px-2 leading-normal">
-              <h5 className="search-title mb-2 font-bold tracking-tight text-gray-900 dark:text-white">{game.name}</h5>
-              <p className="search-genres font-normal text-gray-900 dark:text-gray-400">{game.genres.join(', ')}</p>
+              <h5 className="search-title mb-2 font-bold tracking-tight  text-white">{game.name}</h5>
+              <p className="search-genres font-normal text-gray-900 text-white">{game.genres.join(', ')}</p>
           </div>
 
           <div className="search-cart-container flex flex-col items-center pr-2">
-              <span className="search-price text-xs font-bold text-gray-900 dark:text-white">{game.price}</span>
+              <span className="search-price text-4xl font-bold text-gray-900 dark:text-white">{game.price}</span>
               
             <button className={`search-cart-button bg-blue-500 text-white px-2 py-1 rounded disabled ${
               game.active ? "opacity-50" : "hover:bg-blue-700"

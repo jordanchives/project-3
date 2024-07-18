@@ -1,9 +1,13 @@
 import React from "react";
 import { useQuery } from "@apollo/client";
 import { QUERY_USER } from "../utils/queries";
-import { Link } from "react-router-dom";
+import { Link } from "react-router-dom"
+import auth from "../utils/auth";
 
 function Library() {
+  if(!auth.loggedIn()) {
+    window.location.assign("/login");
+  }
   const { loading, error, data } = useQuery(QUERY_USER, {
     variables: { id: localStorage.getItem("user_id") },
   });

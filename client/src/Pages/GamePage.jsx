@@ -11,7 +11,8 @@ function GamePage() {
   const userID = localStorage.getItem("user_id");
   const [game, setGame] = useState(null);
   const [isInCart, setIsInCart] = useState(false); // State to check if the game is in the cart
-  const [isInLibrary, setIsInLibrary] = useState(false); // State to check if the game is in the library
+  const [isInLibrary, setIsInLibrary] = useState(false);
+   // State to check if the game is in the library
 
   // Fetch game data
   const {
@@ -68,7 +69,9 @@ function GamePage() {
   if (!game) {
     return <div>404 Game not found</div>;
   }
-
+function goToCart(){
+  window.location.assign("/cart");
+}
   return (
     <main className="p-4">
       <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
@@ -83,9 +86,9 @@ function GamePage() {
         {/* Description Container */}
         <div className="md:w-1/2 flex flex-col justify-between">
           <div>
-            <h2 className="text-2xl font-bold mb-2">{game.name}</h2>
-            <p className="text-lg text-black-800 mb-4">${game.price}</p>
-            <p className="text-gray-700">{game.summary}</p>
+            <h2 className="text-2xl font-bold mb-2 text-white">{game.name}</h2>
+            <p className="text-lg text-white mb-4">${game.price}</p>
+            <p className="text-[#ffff]">{game.summary}</p>
           </div>
           <div className="pt-5">
             <button
@@ -102,6 +105,12 @@ function GamePage() {
                 ? "In Library"
                 : "Add to Cart"}
             </button>
+            {isInCart ? (
+              <div><button onClick={goToCart} className="bg-blue-500 text-white font-bold py-2 px-4 rounded mt-3">
+                Go to Cart
+                </button></div>
+            ): ""
+            }
           </div>
         </div>
       </div>
