@@ -56,7 +56,7 @@ function Games({ games }) {
           className="mySwiper"
           breakpoints={{
             333: {
-              slidesPerView: 1,
+              slidesPerView: 2,
             },
             768: {
               slidesPerView: 2,

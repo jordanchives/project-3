@@ -74,27 +74,28 @@ function goToCart(){
 }
   return (
     <main className="p-4">
-      <div className="flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
+      <div className="gamepage-container flex flex-col md:flex-row md:space-x-6 space-y-4 md:space-y-0">
         {/* Image Container */}
-        <div className="relative lg:w-1/4 md:w-1/2 sm:w-full">
+        <div className="gamepage-image relative lg:w-1/4 md:w-1/2 xs:w-full">
           <img
             src={game.cover}
             alt={game.name}
-            className="w-full h-full object-cover rounded-lg shadow-md"
+            className=" w-full h-full object-cover"
           />
         </div>
         {/* Description Container */}
-        <div className="md:w-1/2 flex flex-col justify-between">
+        <div className="gamepage-text-box md:w-1/2 flex flex-col">
           <div>
-            <h2 className="text-2xl font-bold mb-2 text-white">{game.name}</h2>
-            <p className="text-lg text-white mb-4">${game.price}</p>
-            <p className="text-[#ffff]">{game.summary}</p>
+            <h2 className="gamepage-name text-2xl mb-2">{game.name.toUpperCase()}</h2>
+            <p>{game.genres.join(', ')}</p>
+            <p className="text-lg mb-4">${game.price}</p>
+            <p>{game.summary}</p>
           </div>
           <div className="pt-5">
             <button
-              className={`bg-blue-500 text-white font-bold py-2 px-4 rounded ${
-                isInCart ? "opacity-50 cursor-not-allowed" : 
-                isInLibrary ? "opacity-50 cursor-not-allowed" : "hover:bg-blue-700"
+              className={`gamepage-cart text-white font-bold py-2 px-4 rounded ${
+                isInCart ? "opacity-50" : 
+                isInLibrary ? "opacity-50" : ""
               }`}
               onClick={handleAddToCart}
               disabled={isInCart || isInLibrary}

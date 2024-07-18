@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import logo2 from "../assets/images/logo2.svg";
+import burger from "../assets/images/burger.svg";
 import { useNavigate } from "react-router-dom";
 import auth from "../utils/auth";
 import { Button, Sidebar } from 'flowbite-react';
@@ -53,42 +54,30 @@ function NavBar() {
 
   return (
     <div className="flex flex-col lg:flex-row items-center bg-[#171a21]">
-      {/* Main Container */}
-      <div className="flex items-center justify-between w-full lg:px-6 lg:py-6 px-2 py-2">
-        {/* Left: Logo */}
-        <div className="flex items-center">
-          <a href="/">
-            <img src={logo2} width="176" height="44" alt="Link to HomePage" />
+
+      {/* Top Bar */}
+      <div className="topbar flex items-center justify-between w-full lg:px-6 lg:py-4 px-2 py-2">
+        
+        {/* Header */}
+        <div>
+          <a href="/" className="primary-header">
+            <img src={logo2} alt="Link to HomePage" />
+            <h1>checkrd</h1>
           </a>
         </div>
 
-        {/* Right: Hamburger Button */}
+        {/* Hamburger Button */}
         <button
           onClick={() => setOpen(!open)}
           type="button"
           id="navbar-hamburger"
-          className="inline-flex items-center justify-center p-2 w-10 h-10 text-sm text-gray-500 rounded-lg hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
+          className="hamburger inline-flex items-center justify-center p-2 w-14 h-14 text-sm text-gray-500 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-200 dark:text-gray-400 dark:hover:bg-gray-700 dark:focus:ring-gray-600"
           aria-controls="navbar-hamburger"
           aria-expanded={open}
           aria-label="Toggle navigation menu"
         >
-          <span className="sr-only">Open main menu</span>
-          <svg
-            className="w-5 h-5"
-            aria-hidden="true"
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 17 14"
-          >
-            <path
-              stroke="currentColor"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth="2"
-              d="M1 1h15M1 7h15M1 13h15"
-            />
-          </svg>
-        </button>
+        <img className="" src={burger} alt="Hamburger menu icon" aria-hidden="true" />
+      </button>
       </div>
 
       {/* Slide-Out Menu */}
