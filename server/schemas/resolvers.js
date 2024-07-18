@@ -54,16 +54,18 @@ const resolvers = {
       return { token, user };
     },
     addTransaction: async (parent, { transaction }) => {
+      console.log("hello")
+      console.log(transaction)
       const { userId, games } = transaction;
       const user = await User.findById(userId);
-      if (!user) throw new AuthenticationError('You need to be logged in!');
+      if (!user) throw new AuthenticationError();
 
       let total = 0;
       const transactionGames = [];
       for (let i = 0; i < games.length; i++) {
         if (user.library.includes(games[i])) throw new Error('You already own this game!');
         const game = await Game.findById(games[i]);
-        // total += game.price;
+        total += game.price;
         transactionGames.push({ game: game._id, price: game.price });
       }
 

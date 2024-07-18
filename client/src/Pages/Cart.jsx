@@ -62,25 +62,28 @@ function Cart () {
   const handleTransaction = async (event) => {
     event.preventDefault();
     console.log(games, "games");
+  
     try {
       const gameIds = games.map(game => game._id);
-      console.log({gameIds});
+      console.log({ gameIds });
       const newTransaction = { userId: userID, games: gameIds };
-      console.log({newTransaction});
+      console.log({ newTransaction });
+  
       const { data } = await addTransaction({
         variables: { transaction: newTransaction },
       });
-      console.log(data);
-
+  
       if (data) {
         // Update the user's library and transactions in the state or refetch the user data
         // Reset the cart state
         dispatch({ type: 'CLEAR_CART' });
+        console.log('Transaction successful:', data);
       }
     } catch (error) {
-      console.error('Transaction error:', error);
+      console.error('Transaction error:', error.message || transactionError.message);
     }
   };
+  
 
     return (
       <div>
