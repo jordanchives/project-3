@@ -23,6 +23,7 @@ const Register = () => {
         variables: { username, email, password },
       });
       console.log(data);
+      localStorage.setItem("user_id", data.addUser.user._id);
       auth.login(data.addUser.token);
     } catch (err) {
       console.error(error);
